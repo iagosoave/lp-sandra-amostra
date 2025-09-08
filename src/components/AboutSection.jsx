@@ -1,4 +1,5 @@
 import React from 'react';
+import sandraPhoto from './sandra.jpg'; // 1. FOTO IMPORTADA AQUI
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaGlobe, FaCogs, FaCheckCircle } from 'react-icons/fa';
 
@@ -55,9 +56,12 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-100px" }}
           >
             <div className="relative w-full max-w-sm h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-[#033657]/10">
-              <div className="absolute inset-0 bg-[#033657]/10 flex items-center justify-center">
-                <span className="text-[#033657] text-xl font-semibold">Placeholder da Foto</span>
-              </div>
+              {/* 2. PLACEHOLDER SUBSTITUÍDO PELA IMAGEM */}
+              <img 
+                src={sandraPhoto} 
+                alt="Foto de Sandra Tonidandel" 
+                className="w-full h-full object-cover" 
+              />
             </div>
           </motion.div>
 

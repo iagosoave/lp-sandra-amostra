@@ -1,187 +1,182 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useAnimate, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { FaUsers, FaChartLine, FaDollarSign, FaUserTimes, FaBullseye } from 'react-icons/fa';
 
-const PainSection = () => {
-  const painPoints = [
-    {
-      icon: FaUsers,
-      text: "Alunos e famílias cada vez mais exigentes"
-    },
-    {
-      icon: FaChartLine,
-      text: "Resultados pedagógicos que não acompanham o investimento"
-    },
-    {
-      icon: FaDollarSign,
-      text: "Pressão financeira crescente"
-    },
-    {
-      icon: FaUserTimes,
-      text: "Professores desmotivados"
-    },
-    {
-      icon: FaBullseye,
-      text: "Uma liderança que muitas vezes se sente sozinha"
-    }
-  ];
+// --- Componente de Card Individual ---
+const PainPointCard = ({ point, index }) => {
+  const [scope, animate] = useAnimate();
+  const cardRef = useRef(null);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3
-      }
-    }
+  const handleMouseEnter = () => {
+    animate([
+      ['.corner-top-left', { top: 16, left: 16 }, { duration: 0.2, at: 0 }],
+      ['.corner-top-right', { top: 16, right: 16 }, { duration: 0.2, at: 0 }],
+      ['.corner-bottom-left', { bottom: 16, left: 16 }, { duration: 0.2, at: 0 }],
+      ['.corner-bottom-right', { bottom: 16, right: 16 }, { duration: 0.2, at: 0 }],
+      ['.scanner-line', { top: '100%', transition: { duration: 0.4, ease: 'circOut' } }, { at: 0.1 }],
+      ['.icon-ring', { scale: 1, opacity: 1 }, { duration: 0.3, at: 0.15 }],
+      ['.icon-svg', { scale: 1.1 }, { type: 'spring', stiffness: 300, damping: 15, at: 0.2 }],
+      ['.scanner-line', { opacity: 0 }, { duration: 0.1, at: 0.5 }],
+    ]);
   };
 
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 40,
-      scale: 0.9 
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
+  const handleMouseLeave = () => {
+    animate([
+      ['.corner-top-left', { top: -8, left: -8 }, { duration: 0.2 }],
+      ['.corner-top-right', { top: -8, right: -8 }, { duration: 0.2, at: '<' }],
+      ['.corner-bottom-left', { bottom: -8, left: -8 }, { duration: 0.2, at: '<' }],
+      ['.corner-bottom-right', { bottom: -8, right: -8 }, { duration: 0.2, at: '<' }],
+      ['.icon-svg', { scale: 1 }, { type: 'spring', stiffness: 200, damping: 20 }],
+      ['.icon-ring', { scale: 0, opacity: 0 }, { duration: 0.2, at: '<' }],
+      ['.scanner-line', { top: '-100%', opacity: 1 }, { duration: 0 }],
+    ]);
+  };
+  
+  return (
+    <motion.div
+      ref={scope}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 + index * 0.08 }}
+      viewport={{ once: true, amount: 0.6 }}
+      className="relative h-full min-h-[280px] p-6 bg-slate-50 border border-slate-200/80 rounded-xl transition-shadow duration-300 hover:shadow-[0_20px_40px_-10px_rgba(3,54,87,0.2)]"
+    >
+      {/* --- Elementos da Animação --- */}
+      <div className="absolute inset-0 overflow-hidden rounded-xl">
+          {/* Colchetes nos Cantos */}
+          <div className="corner corner-top-left" />
+          <div className="corner corner-top-right" />
+          <div className="corner corner-bottom-left" />
+          <div className="corner corner-bottom-right" />
+          {/* Linha de Scanner */}
+          <div className="scanner-line absolute -top-full left-0 w-full h-1 bg-gradient-to-b from-[#033657] to-transparent" />
+      </div>
+      
+      {/* --- Conteúdo --- */}
+      <div className="relative z-10 flex flex-col justify-between h-full">
+        <div className="relative w-16 h-16">
+          <div className="icon-ring absolute inset-0 scale-0 opacity-0 rounded-full border-2 border-[#033657]/50" />
+          <div className="icon-ring absolute inset-0 scale-0 opacity-0 rounded-full border border-[#033657]/50 animate-ping" style={{animationDuration: '1.5s'}}/>
+          <point.icon className="icon-svg w-16 h-16 text-[#033657]" />
+        </div>
+        <p className="text-lg font-light text-[#033657]/90 leading-relaxed mt-4">
+          {point.text}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
+
+// --- Componente Principal ---
+const PainSection = () => {
+  const painPoints = [
+    { icon: FaUsers, text: "Alunos e famílias cada vez mais exigentes." },
+    { icon: FaChartLine, text: "Resultados pedagógicos que não acompanham o investimento." },
+    { icon: FaDollarSign, text: "Pressão financeira crescente e margens apertadas." },
+    { icon: FaUserTimes, text: "Professores sobrecarregados e desmotivados." },
+    { icon: FaBullseye, text: "Uma liderança estratégica que muitas vezes se sente sozinha." }
+  ];
+  
+  // Efeito de Parallax no fundo
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 100, damping: 20 });
+  const springY = useSpring(y, { stiffness: 100, damping: 20 });
+  const backgroundX = useTransform(springX, [-500, 500], ["-5%", "5%"]);
+  const backgroundY = useTransform(springY, [-500, 500], ["-5%", "5%"]);
+
+  const handleMouseMove = (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      x.set(e.clientX - rect.width / 2);
+      y.set(e.clientY - rect.height / 2);
   };
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-gray-100">
-      {/* Background radial gradient */}
-      <div className="absolute inset-0 z-0 opacity-40" style={{
-        backgroundImage: 'radial-gradient(circle at 100% 0%, #033657, transparent), radial-gradient(circle at 0% 100%, #033657, transparent)',
-      }}></div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <motion.div 
-          className="text-center mb-16 md:mb-24"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#033657] leading-tight max-w-4xl mx-auto mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            Se você é líder escolar, sabe como é viver entre
-            <span className="text-[#033657] relative ml-2">
-              incêndios
-              <motion.div
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-[#033657] rounded-full"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true }}
-              />
-            </span>
-            :
-          </h2>
-        </motion.div>
-
-        {/* Pain Points Cards */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {painPoints.map((point, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              className="relative group bg-white rounded-3xl p-8 border border-[#033657]/20 shadow-md transition-all duration-300"
-              whileHover={{ 
-                y: -10,
-                boxShadow: "0 15px 30px rgba(3, 54, 87, 0.2)" 
-              }}
-            >
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 z-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
-                boxShadow: "0 0 40px rgba(3, 54, 87, 0.4)",
-              }}></div>
-
-              {/* Card Content */}
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-xl bg-[#033657]/10 text-[#033657] transition-colors duration-300 group-hover:bg-[#033657] group-hover:text-white">
-                  <point.icon className="w-8 h-8" />
-                </div>
-                
-                {/* Text */}
-                <p className="text-[#033657] font-semibold text-lg leading-relaxed group-hover:text-[#033657] transition-colors duration-300" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                  {point.text}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Bottom Content */}
-        <div className="max-w-5xl mx-auto space-y-12 text-center">
-          {/* First Statement */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+    <section 
+      onMouseMove={handleMouseMove}
+      className="relative w-full bg-white text-[#033657] py-28 md:py-40 overflow-hidden"
+    >
+      {/* Fundo de "Blueprint" com Parallax */}
+      <motion.div 
+        style={{ x: backgroundX, y: backgroundY }}
+        className="absolute inset-[-10%] z-0 h-[120%] w-[120%]"
+      >
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="dot-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="0.5" fill="#033657" fillOpacity="0.1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dot-grid)" />
+        </svg>
+      </motion.div>
+      
+      <div className="relative max-w-7xl mx-auto px-6 z-10">
+        <div className="max-w-4xl text-center mx-auto mb-20">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 30, mass: 1.5 }}
             viewport={{ once: true }}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter leading-tight"
           >
-            <p className="text-xl md:text-2xl text-[#033657] font-medium leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              Você tenta organizar processos, busca inspiração em outras escolas, mas no fundo sente que falta um{' '}
-              <span className="font-bold text-[#033657] relative">
-                norte estratégico
-                <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-1 bg-[#033657]/20 rounded-full"
+            Sua liderança é uma ciência, não uma luta contra 
+            <span className="relative inline-block ml-4">
+              <motion.span 
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ type: 'spring', stiffness: 100, damping: 30, delay: 0.3 }}
+                 viewport={{ once: true }}
+                 className="relative"
+              >
+                incêndios.
+                <motion.div 
+                  className="absolute bottom-[-10px] left-0 w-full h-1 bg-[#033657]"
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
+                  transition={{ duration: 0.6, ease: [0.6, 0.01, -0.05, 0.95], delay: 0.5 }}
                   viewport={{ once: true }}
                 />
-              </span>.
-            </p>
-          </motion.div>
-
-          {/* Main Highlight Box */}
-          <motion.div
-            className="p-8 md:p-12 border-4 border-[#033657]/20 rounded-3xl shadow-xl bg-white hover:border-[#033657] transition-colors duration-300"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+              </motion.span>
+            </span>
+          </motion.h2>
+          <motion.p
+            className="mt-8 text-lg md:text-xl text-[#033657]/70 leading-relaxed max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <motion.h3
-              className="text-2xl md:text-3xl font-extrabold text-[#033657] mb-4"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              Não basta ter um bom pedagógico ou equilíbrio financeiro.
-            </motion.h3>
-            <motion.p
-              className="text-xl md:text-2xl text-[#033657] font-semibold leading-relaxed"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              O verdadeiro desafio é integrar tudo em um modelo que seja
-              <span className="text-[#033657] font-bold ml-2">sustentável, consolidado e inspirador</span>.
-            </motion.p>
-          </motion.div>
+            Integre pedagógico e financeiro com precisão. Transforme dados em inspiração e construa um modelo de gestão sustentável e estratégico.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          {painPoints.map((point, index) => (
+            <PainPointCard key={index} point={point} index={index} />
+          ))}
         </div>
       </div>
+
+      {/* Estilos CSS para os elementos da animação */}
+      <style jsx>{`
+        .corner {
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          border-style: solid;
+          border-color: #033657;
+          opacity: 0.6;
+          transition: all 0.2s ease-out;
+        }
+        .corner-top-left { top: -8px; left: -8px; border-width: 2px 0 0 2px; }
+        .corner-top-right { top: -8px; right: -8px; border-width: 2px 2px 0 0; }
+        .corner-bottom-left { bottom: -8px; left: -8px; border-width: 0 0 2px 2px; }
+        .corner-bottom-right { bottom: -8px; right: -8px; border-width: 0 2px 2px 0; }
+      `}</style>
     </section>
   );
 };
