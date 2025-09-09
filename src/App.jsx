@@ -18,8 +18,8 @@ const App = () => {
        <AboutSection />
       <ProgramSection />
        <ProofAndOfferSection />
-      <CTASection />
-       <FutureSection />     
+       <FutureSection />   
+       <CTASection />  
     </div>
   );
 };

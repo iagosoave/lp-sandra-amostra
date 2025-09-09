@@ -1,9 +1,49 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+// ProgramSection.jsx (Versão com design avançado em arquivo único)
+
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaShieldAlt, FaStar, FaChartLine, FaUsersCog, FaBuilding } from 'react-icons/fa';
 
-const ProgramSection = () => {
-  const programGoals = [
+//==================================================================
+// 1. COMPONENTE DE CARD REUTILIZÁVEL
+//==================================================================
+// O mesmo componente de card que usamos antes, pronto para receber os novos dados.
+const FeatureCard = ({ icon: Icon, title, children, variants }) => {
+  return (
+    <motion.div
+      variants={variants}
+      whileHover={{ scale: 1.03, y: -8 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      className="bg-slate-800/60 p-8 rounded-2xl flex flex-col h-full shadow-lg border border-slate-700"
+    >
+      <div className="text-cyan-400 text-3xl mb-5">
+        <Icon />
+      </div>
+      <h3 className="text-xl font-bold text-white mb-3">
+        {title}
+      </h3>
+      <p className="text-base text-gray-300 leading-relaxed flex-grow">
+        {children}
+      </p>
+      <div className="mt-6 pt-4">
+        <div className="w-1/3 h-1 bg-cyan-400 rounded-full"></div>
+      </div>
+    </motion.div>
+  );
+};
+
+//==================================================================
+// 2. CONFIGURAÇÃO DO CONTEÚDO (Usando seus dados)
+//==================================================================
+// Centralizamos todo o conteúdo da sua seção aqui.
+const sectionContent = {
+  mainTitle: (
+    <>
+      O Programa <span className="text-cyan-400">O 5º Desafio</span>
+    </>
+  ),
+  subtitle: 'Da Crise Acadêmica ao Superávit Estratégico é um programa estruturado em 10 passos, pensado para instituições que desejam:',
+  goals: [
     {
       icon: FaShieldAlt,
       title: "Da Crise à Consolidação",
@@ -29,52 +69,58 @@ const ProgramSection = () => {
       title: "Transformar sua Escola em Referência",
       text: "Posicionar sua escola como uma referência para alunos, famílias e para todo o mercado educacional."
     },
-  ];
+  ],
+};
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
+//==================================================================
+// 3. VARIANTES DE ANIMAÇÃO
+//==================================================================
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+  },
+};
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 90,
-        damping: 12
-      }
-    }
-  };
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: "spring", stiffness: 90, damping: 12 },
+  },
+};
+
+//==================================================================
+// 4. COMPONENTE PRINCIPAL DA SEÇÃO
+//==================================================================
+const ProgramSection = () => {
+  const sectionRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Animação de entrada para o título baseada no scroll
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+  const titleY = useTransform(scrollYProgress, [0, 0.2], [30, 0]);
 
   return (
-    <section className="bg-gray-50 py-24 md:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-20" style={{
-        backgroundImage: 'radial-gradient(circle at 100% 0%, #033657, transparent), radial-gradient(circle at 0% 100%, #033657, transparent)',
-      }}></div>
-      
+    <section ref={sectionRef} className="bg-[#0D1A2E] py-24 md:py-32 relative overflow-hidden font-['Poppins',_sans-serif]">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
+        
         <motion.div 
-          className="text-center mb-16 md:mb-24"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          className="text-center mb-16 md:mb-20"
+          style={{ opacity: titleOpacity, y: titleY }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#033657] leading-tight mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            O Programa <span className="text-[#033657]">O 5º Desafio</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+            {sectionContent.mainTitle}
           </h2>
-          <p className="text-xl md:text-2xl text-[#033657] font-semibold" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            <span className="text-[#033657]">Da Crise Acadêmica ao Superávit Estratégico</span> é um programa estruturado em 10 passos, pensado para instituições que desejam:
+          <p className="max-w-4xl mx-auto text-lg md:text-xl text-gray-300">
+            {sectionContent.subtitle}
           </p>
         </motion.div>
 
@@ -83,24 +129,17 @@ const ProgramSection = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.1 }}
         >
-          {programGoals.map((goal, index) => (
-            <motion.div
+          {sectionContent.goals.map((goal, index) => (
+            <FeatureCard
               key={index}
               variants={cardVariants}
-              className="bg-white rounded-3xl p-8 shadow-lg border border-[#033657]/20 hover:shadow-[#033657]/60 transition-all duration-300 transform hover:-translate-y-2"
+              icon={goal.icon}
+              title={goal.title}
             >
-              <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-2xl bg-[#033657]/10 text-[#033657] transition-colors duration-300">
-                <goal.icon className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold text-[#033657] mb-3" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                {goal.title}
-              </h3>
-              <p className="text-base text-[#033657] leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                {goal.text}
-              </p>
-            </motion.div>
+              {goal.text}
+            </FeatureCard>
           ))}
         </motion.div>
       </div>
