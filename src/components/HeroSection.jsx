@@ -40,32 +40,23 @@ const HeroSection = () => {
           {/* Logo */}
           <div className="flex justify-center">
             <div className="w-32 h-16 bg-[#033657] rounded flex items-center justify-center shadow-lg">
-              <span className="text-white text-sm font-bold">LOGO</span>
+              <span className="text-white text-sm font-bold font-lato">LOGO</span>
             </div>
           </div>
           
           {/* Título e Texto */}
           <div className="space-y-4 text-center">
-            <h1 
-              className="text-3xl font-bold leading-tight"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-            >
+            <h1 className="font-playfair text-3xl font-bold leading-tight">
               Sua escola está pronta para enfrentar o <span className="text-[#033657]">5º Desafio</span>?
             </h1>
             
-            <p 
-              className="text-gray-700 text-sm leading-relaxed font-semibold"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-            >
+            <p className="font-lato text-gray-700 text-sm leading-relaxed font-semibold">
               Da crise acadêmica ao <span className="text-[#033657]">superávit estratégico</span>
             </p>
           </div>
           
           {/* CTA Button */}
-          <button 
-            className="bg-[#033657] hover:bg-[#022845] text-white font-bold px-6 py-4 rounded-full text-base transition-all duration-300 w-full shadow-lg flex items-center justify-center space-x-2"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          >
+          <button className="font-lato bg-[#033657] hover:bg-[#022845] text-white font-bold px-6 py-4 rounded-full text-base transition-all duration-300 w-full shadow-lg flex items-center justify-center space-x-2">
             <span>QUERO CONHECER O MÉTODO</span>
             <ArrowRight className="w-5 h-5" />
           </button>
@@ -92,30 +83,21 @@ const HeroSection = () => {
           <div className="space-y-8 py-12">
             {/* Logo Placeholder */}
             <div className="w-32 h-16 bg-[#033657] rounded flex items-center justify-center mb-12 shadow-lg">
-              <span className="text-white text-sm font-bold">LOGO</span>
+              <span className="text-white text-sm font-bold font-lato">LOGO</span>
             </div>
             
             {/* Main Copy */}
             <div className="space-y-6">
-              <h1 
-                className="text-4xl md:text-5xl font-black text-black leading-tight drop-shadow-lg"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
-              >
+              <h1 className="font-playfair text-4xl md:text-5xl font-black text-black leading-tight drop-shadow-lg">
                 Sua escola está pronta para enfrentar o <span className="text-[#033657]">5º Desafio</span>?
               </h1>
               
-              <h2 
-                className="text-xl md:text-2xl font-bold text-black drop-shadow-lg"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
-              >
+              <h2 className="font-lato text-xl md:text-2xl font-bold text-black drop-shadow-lg">
                 Da crise acadêmica ao <span className="text-[#033657]">superávit estratégico</span>
               </h2>
               
               {/* CTA Button */}
-              <button 
-                className="bg-[#033657] hover:bg-[#022845] text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 flex items-center space-x-2 shadow-lg mt-8"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
-              >
+              <button className="font-lato bg-[#033657] hover:bg-[#022845] text-white font-bold py-4 px-8 rounded-full text-lg transition-all transform hover:scale-105 flex items-center space-x-2 shadow-lg mt-8">
                 <span>QUERO CONHECER O MÉTODO</span>
                 <ArrowRight className="w-5 h-5" />
               </button>

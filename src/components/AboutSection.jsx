@@ -73,17 +73,15 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-100px" }}
           >
             <motion.h2 
-              className="text-4xl md:text-5xl font-extrabold text-[#033657] mb-4 leading-tight" 
-              variants={textVariants} 
-              style={{ fontFamily: 'Poppins, sans-serif' }}
+              className="font-playfair text-4xl md:text-5xl font-extrabold text-[#033657] mb-4 leading-tight" 
+              variants={textVariants}
             >
               Quem é <span className="text-[#033657]">Sandra Tonidandel</span>
             </motion.h2>
 
             <motion.p 
-              className="text-lg md:text-xl text-[#033657] leading-relaxed mb-8" 
+              className="font-lato text-lg md:text-xl text-[#033657] leading-relaxed mb-8" 
               variants={textVariants}
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Educadora, pesquisadora e estrategista em gestão acadêmica. Ao longo de sua jornada, ajudou escolas a superar crises profundas e a conquistar resultados que pareciam impossíveis.
             </motion.p>
@@ -94,7 +92,7 @@ const AboutSection = () => {
                 <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-[#033657]/10 text-[#033657] mr-4">
                   <FaGraduationCap className="w-6 h-6" />
                 </div>
-                <p className="text-lg text-[#033657] leading-relaxed font-medium">
+                <p className="font-lato text-lg text-[#033657] leading-relaxed font-medium">
                   Trabalhou com instituições privadas de <span className="font-bold">alto padrão</span>.
                 </p>
               </motion.div>
@@ -103,7 +101,7 @@ const AboutSection = () => {
                 <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-[#033657]/10 text-[#033657] mr-4">
                   <FaGlobe className="w-6 h-6" />
                 </div>
-                <p className="text-lg text-[#033657] leading-relaxed font-medium">
+                <p className="font-lato text-lg text-[#033657] leading-relaxed font-medium">
                   Trouxe <span className="font-bold">referências internacionais</span>.
                 </p>
               </motion.div>
@@ -112,7 +110,7 @@ const AboutSection = () => {
                 <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-[#033657]/10 text-[#033657] mr-4">
                   <FaCogs className="w-6 h-6" />
                 </div>
-                <p className="text-lg text-[#033657] leading-relaxed font-medium">
+                <p className="font-lato text-lg text-[#033657] leading-relaxed font-medium">
                   E desenvolveu um modelo exclusivo de <span className="font-bold text-[#033657]">10 passos</span> para levar sua escola da crise ao superávit estratégico.
                 </p>
               </motion.div>
@@ -121,7 +119,7 @@ const AboutSection = () => {
                 <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-[#033657]/10 text-[#033657] mr-4">
                   <FaCheckCircle className="w-6 h-6" />
                 </div>
-                <p className="text-lg text-[#033657] leading-relaxed font-medium">
+                <p className="font-lato text-lg text-[#033657] leading-relaxed font-medium">
                   Não é teoria, é prática validada, é <span className="font-bold">estratégia comprovada</span>.
                 </p>
               </motion.div>

@@ -1,9 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+/* Importar as fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700;900&display=swap');
 
-@import 'tailwindcss';
+/* Imports do Tailwind */
+@import "tailwindcss";
 
-body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+/* Definir as variáveis de fonte customizadas para o Tailwind CSS v4 */
+@theme {
+  --font-family-playfair: 'Playfair Display', serif;
+  --font-family-lato: 'Lato', sans-serif;
 }
 
+/* Aplicar as fontes como padrão */
+@layer base {
+  /* Todos os títulos usam Playfair Display */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-playfair);
+  }
+  
+  /* Todo o resto usa Lato */
+  body {
+    font-family: var(--font-family-lato);
+  }
+}
+
+/* Criar classes utilitárias para usar manualmente quando necessário */
+@layer utilities {
+  .font-playfair {
+    font-family: var(--font-family-playfair);
+  }
+  
+  .font-lato {
+    font-family: var(--font-family-lato);
+  }
+}
