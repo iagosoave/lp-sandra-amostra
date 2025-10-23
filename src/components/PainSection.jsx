@@ -1,28 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaUsers, FaChartLine, FaMoneyBillWave, FaUserTie, FaUserShield } from 'react-icons/fa';
+import { FaUsers, FaChartLine, FaMoneyBillWave, FaUserTie, FaSync } from 'react-icons/fa';
 
 const TeacherMentorshipSection = () => {
   const cards = [
     {
       icon: FaUsers,
-      text: "Alunos e famílias cada vez mais exigentes."
-    },
-    {
-      icon: FaChartLine,
-      text: "Resultados pedagógicos que não acompanham o investimento."
-    },
-    {
-      icon: FaMoneyBillWave,
-      text: "Pressão financeira crescente e margens apertadas."
+      text: "Dificuldade na captação e retenção de alunos"
     },
     {
       icon: FaUserTie,
-      text: "Professores sobrecarregados e desmotivados."
+      text: "Alunos e famílias cada vez mais exigentes e sensíveis"
     },
     {
-      icon: FaUserShield,
-      text: "Uma liderança estratégica que muitas vezes se sente sozinha."
+      icon: FaMoneyBillWave,
+      text: "Pressão financeira crescente e margens de lucro cada vez mais apertadas"
+    },
+    {
+      icon: FaChartLine,
+      text: "Desmotivação e alta rotatividade da equipe pedagógica"
+    },
+    {
+      icon: FaSync,
+      text: "Descompasso entre investimentos e resultados pedagógicos"
+    },
+    {
+      icon: FaSync,
+      text: "Esteira infinitade urgências: você fecha o dia exausta, prisioneira do operacional, com muito esforço e pouco avanço estratégico."
     }
   ];
 
@@ -35,13 +39,13 @@ const TeacherMentorshipSection = () => {
             Sobre o método
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            <span className="text-cyan-400 block mb-2">Sua liderança é uma ciência,</span>
-            <span className="text-white block">não uma luta contra incêndio.</span>
+            <span className="text-cyan-400 block mb-2">Sua liderança é estratégica!</span>
+            <span className="text-white block">Ela não pode ser capturada por uma rotina de apagar incêndios.</span>
           </h1>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {cards.map((card, index) => (
             <motion.div
               key={index}
@@ -68,6 +72,19 @@ const TeacherMentorshipSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Empathy Microcopy */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.5 }}
+          className="text-center"
+        >
+          <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto px-6 py-8 bg-slate-900/30 backdrop-blur-sm rounded-2xl border border-cyan-400/20">
+            Se você sente que a rotina sequestra sua liderança estratégica, você não está só — 
+            <span className="text-cyan-400 font-semibold"> e isso muda com método, protocolos e acompanhamento.</span>
+          </p>
+        </motion.div>
       </div>
     </div>
   );

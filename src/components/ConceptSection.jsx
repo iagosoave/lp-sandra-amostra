@@ -2,10 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaLightbulb, FaKey } from 'react-icons/fa';
-
-// IMPORTAÇÃO DA IMAGEM
-import pecasImg from './peças.png'; 
+import { FaLightbulb } from 'react-icons/fa';
 
 //==================================================================
 // COMPONENTE DE CARD
@@ -41,7 +38,7 @@ const sectionContent = {
   mainTitle: "O Desafio que Muda o Jogo",
   mainParagraph: (
     <>
-      As instituições de ensino enfrentam quatro grandes desafios conhecidos: <span className="font-bold text-gray-100">pedagógico, financeiro, reputação e liderança</span>.
+      As instituições de ensino enfrentam quatro grandes desafios conhecidos: <span className="font-bold text-gray-100">Cultura escolar enfraquecida, Direção pouco Estratégica, Instabilidade Financeira e Liderança Fragmentada</span>.
     </>
   ),
   cards: [
@@ -51,15 +48,6 @@ const sectionContent = {
       description: (
         <>
           Mas existe um <span className="font-bold text-gray-100">5º Desafio</span>, que quase ninguém encara — e é justamente ele que separa as escolas que apenas sobrevivem daquelas que se consolidam como referência.
-        </>
-      ),
-    },
-    {
-      icon: FaKey,
-      title: 'A Chave para o Sucesso Sustentável',
-      description: (
-        <>
-          O <span className="font-bold text-gray-100">5º Desafio</span> é a capacidade de atravessar crises e construir um modelo de gestão acadêmica e estratégica que leve sua escola a <span className="font-bold text-gray-100">resultados consistentes e sustentáveis</span>.
         </>
       ),
     },
@@ -113,24 +101,8 @@ const AdvancedConceptSection = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="bg-[#0D1A2E] pt-16 md:pt-20 relative overflow-hidden font-['Poppins',_sans-serif] pb-80 lg:pb-40"
+      className="bg-[#0D1A2E] pt-16 md:pt-20 pb-16 md:pb-20 relative overflow-hidden font['Poppins',_sans-serif]"
     >
-      
-      {/* IMAGEM POSICIONADA - MANTIDA COMO NO ORIGINAL */}
-      <motion.div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 w-[90%] max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none lg:w-[600px] h-auto z-10"
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <img 
-          src={pecasImg} 
-          alt="Ilustração de peças de xadrez representando estratégia" 
-          className="w-full h-auto"
-        />
-      </motion.div>
-      
       <div className="max-w-7xl mx-auto px-6 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           
@@ -182,7 +154,7 @@ const AdvancedConceptSection = () => {
             </motion.p>
           </div>
 
-          {/* Coluna da Direita - AJUSTADA PARA MOBILE */}
+          {/* Coluna da Direita */}
           <motion.div
             className="space-y-8 mt-8 lg:mt-0"
             variants={containerVariants}
