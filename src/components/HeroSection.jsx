@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 // Import das imagens
@@ -20,10 +21,31 @@ const HeroSection = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Variantes de animação
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
   // Mobile Version Component
   const MobileVersion = () => (
     <div className="relative min-h-screen bg-white text-black">
-      {/* Background Image Container */}
+      {/* Background Image Container - SEM ANIMAÇÃO */}
       <div className="relative w-full">
         <img 
           src={bannerMobile || bannerDesktop}
@@ -37,36 +59,99 @@ const HeroSection = () => {
       
       {/* Content Container */}
       <div className="relative z-10 px-6 py-8 bg-white">
-        <div className="w-full max-w-sm mx-auto space-y-4">
+        <motion.div 
+          className="w-full max-w-sm mx-auto space-y-4"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
           
-          {/* Logo - MAIS REDUZIDO */}
-          <div className="flex justify-center mb-2">
+          {/* Logo */}
+          <motion.div 
+            className="flex justify-center mb-2"
+            variants={fadeInUp}
+          >
             <img 
               src={logo} 
               alt="Logo" 
               className="h-16 w-auto"
             />
-          </div>
+          </motion.div>
           
           {/* Título e Texto */}
           <div className="space-y-4 text-center">
-            <h1 className="font-playfair text-3xl font-bold leading-tight text-[#003399]">
+            <motion.h1 
+              className="font-playfair text-3xl font-bold leading-tight text-[#003399]"
+              variants={fadeInUp}
+            >
               Liderança escolar de alta performance, com método e previsibilidade
-            </h1>
+            </motion.h1>
             
-            <p className="font-lato text-[#003399] text-sm leading-relaxed font-semibold">
-              Mentoria executiva para diretores e mantenedores que desejam transformar resultados acadêmicos, reputação e margens — sem viver no modo "apaga-incêndios".
-            </p>
+            <motion.p 
+              className="font-lato text-[#003399] text-sm leading-relaxed font-semibold"
+              variants={fadeInUp}
+            >
+              Mentoria executiva para diretores e mantenedores que desejam transformar resultados acadêmicos, reputação e margens sem viver no modo "apaga incêndios".
+            </motion.p>
           </div>
           
-          {/* CTA Button */}
-          <button className="relative font-lato bg-cyan-500 hover:bg-cyan-400 text-white font-bold px-6 py-4 rounded-full text-base transition-all duration-300 w-full shadow-lg flex items-center justify-center space-x-2 overflow-hidden group mt-6">
-            <div className="absolute inset-0 bg-cyan-400 opacity-75 blur-xl group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-            <span className="relative z-10">QUERO CONHECER O MÉTODO</span>
-            <ArrowRight className="w-5 h-5 relative z-10" />
-          </button>
-        </div>
+          {/* CTA Button - MELHORADO */}
+          <motion.div
+            variants={fadeInUp}
+            className="mt-6"
+          >
+            <motion.button 
+              className="relative font-lato bg-[#003399] text-white font-bold px-8 py-4 rounded-full text-base w-full shadow-xl flex items-center justify-center space-x-3 overflow-hidden group"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              {/* Glow pulsante */}
+              <motion.div 
+                className="absolute -inset-1 bg-[#003399] rounded-full blur-xl opacity-60"
+                animate={{ 
+                  opacity: [0.6, 0.8, 0.6],
+                  scale: [1, 1.05, 1]
+                }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              
+              {/* Background gradient hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#003399] via-[#0044BB] to-[#003399] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Shine effect melhorado */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: '-100%' }}
+                animate={{ x: '200%' }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatDelay: 1,
+                  ease: "easeInOut"
+                }}
+              />
+              
+              {/* Button content */}
+              <span className="relative z-10 font-bold">QUERO CONHECER O MÉTODO</span>
+              <motion.div
+                className="relative z-10"
+                animate={{ x: [0, 4, 0] }}
+                transition={{ 
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <ArrowRight className="w-5 h-5" />
+              </motion.div>
+            </motion.button>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
@@ -74,7 +159,7 @@ const HeroSection = () => {
   // Desktop Version Component
   const DesktopVersion = () => (
     <div className="relative w-full bg-white">
-      {/* Container do Banner - mostra a imagem completa */}
+      {/* Container do Banner - SEM ANIMAÇÃO */}
       <div className="relative w-full">
         <img 
           src={bannerDesktop}
@@ -87,44 +172,99 @@ const HeroSection = () => {
           
           {/* Logo e Conteúdo juntos */}
           <div className="flex-1 flex flex-col justify-center">
-            <div className="max-w-xl space-y-3">
+            <motion.div 
+              className="max-w-xl space-y-3"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
               
-              {/* Logo - MAIS REDUZIDO */}
-              <div className="mb-2">
+              {/* Logo */}
+              <motion.div 
+                className="mb-2"
+                variants={fadeInUp}
+              >
                 <img 
                   src={logo} 
                   alt="Logo" 
                   className="h-20 md:h-24 w-auto"
                 />
-              </div>
+              </motion.div>
               
-              <h1 className="font-playfair text-3xl md:text-4xl font-bold leading-tight text-[#003399]">
+              <motion.h1 
+                className="font-playfair text-3xl md:text-4xl font-bold leading-tight text-[#003399]"
+                variants={fadeInUp}
+              >
                 Liderança escolar de alta performance, com método e previsibilidade
-              </h1>
+              </motion.h1>
               
-              <h2 className="font-lato text-lg md:text-xl font-semibold text-[#003399] leading-relaxed">
-                Mentoria executiva para diretores e mantenedores que desejam transformar resultados acadêmicos, reputação e margens — sem viver no modo "apaga-incêndios".
-              </h2>
+              <motion.h2 
+                className="font-lato text-lg md:text-xl font-semibold text-[#003399] leading-relaxed"
+                variants={fadeInUp}
+              >
+                Mentoria executiva para diretores e mantenedores que desejam transformar resultados acadêmicos, reputação e margens sem viver no modo "apaga incêndios".
+              </motion.h2>
               
-              {/* CTA Button with glow effect */}
-              <div className="pt-4">
-                <button className="relative font-lato bg-cyan-500 hover:bg-cyan-400 text-white font-bold py-4 px-8 rounded-full text-base transition-all duration-300 flex items-center space-x-2 shadow-2xl overflow-hidden group">
-                  {/* Outer glow */}
-                  <div className="absolute -inset-2 bg-cyan-400/50 rounded-full blur-2xl group-hover:bg-cyan-300/60 transition-all duration-300"></div>
+              {/* CTA Button - MELHORADO */}
+              <motion.div 
+                className="pt-4"
+                variants={fadeInUp}
+              >
+                <motion.button 
+                  className="relative font-lato bg-[#003399] text-white font-bold py-5 px-10 rounded-full text-lg flex items-center space-x-3 shadow-2xl overflow-hidden group"
+                  whileHover={{ scale: 1.05, x: 5 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                >
+                  {/* Glow pulsante externo */}
+                  <motion.div 
+                    className="absolute -inset-2 bg-[#003399] rounded-full blur-2xl opacity-50"
+                    animate={{ 
+                      opacity: [0.5, 0.7, 0.5],
+                      scale: [1, 1.08, 1]
+                    }}
+                    transition={{ 
+                      duration: 2.5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
                   
-                  {/* Inner glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Background gradient animado no hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#003399] via-[#0055CC] to-[#003399] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  {/* Animated shine effect */}
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+                  {/* Shine effect melhorado e contínuo */}
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-12"
+                    initial={{ x: '-150%' }}
+                    animate={{ x: '250%' }}
+                    transition={{ 
+                      duration: 2.5,
+                      repeat: Infinity,
+                      repeatDelay: 1.5,
+                      ease: "easeInOut"
+                    }}
+                  />
                   
                   {/* Button content */}
-                  <span className="relative z-10 font-bold">QUERO CONHECER O MÉTODO</span>
-                  <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
+                  <span className="relative z-10 font-bold tracking-wide">QUERO CONHECER O MÉTODO</span>
+                  
+                  {/* Seta com animação */}
+                  <motion.div
+                    className="relative z-10"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ 
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <ArrowRight className="w-6 h-6" />
+                  </motion.div>
+                </motion.button>
+              </motion.div>
               
-            </div>
+            </motion.div>
           </div>
           
         </div>
