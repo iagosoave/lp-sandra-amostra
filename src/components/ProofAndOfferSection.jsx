@@ -1,50 +1,34 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaChevronLeft, FaChevronRight, FaQuoteLeft } from 'react-icons/fa';
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import rodrigoPhoto from './rodrigo.png';
+import danielPhoto from './daniel.png';
+import valdenicePhoto from './valdenice.png';
 
 const SocialProofSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(1); // Start with middle item
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
     {
-      school: "Colégio Horizonte",
-      location: "São Paulo, SP",
-      image: "https://via.placeholder.com/400x500/1e3a8a/ffffff?text=Escola+1",
-      quote: "Saímos de um déficit de 200 mil para um superávit de 500 mil em 18 meses.",
-      author: "Maria Silva",
-      role: "Diretora Pedagógica"
+      name: "Rodrigo Teixeira Conceição",
+      role: "Diretor Executivo Educacional",
+      school: "Palestrante e Consultor",
+      image: rodrigoPhoto,
+      quote: "A transformação na nossa gestão acadêmica superou todas as expectativas. Hoje temos processos claros e resultados mensuráveis."
     },
     {
-      school: "Instituto Educacional Futuro",
-      location: "Campinas, SP",
-      image: "https://via.placeholder.com/400x500/1e40af/ffffff?text=Escola+2",
-      quote: "Nossa taxa de inadimplência caiu de 35% para 8% após implementar o método.",
-      author: "João Santos",
-      role: "Diretor Administrativo"
+      name: "Daniel Perry",
+      role: "Diretor Executivo",
+      school: "Sistema Anglo de Ensino",
+      image: danielPhoto,
+      quote: "Conseguimos integrar o pedagógico e o financeiro de forma estratégica. Nossa instituição nunca esteve tão sólida."
     },
     {
-      school: "Escola Nova Geração",
-      location: "Ribeirão Preto, SP",
-      image: "https://via.placeholder.com/400x500/1e3a8a/ffffff?text=Escola+3",
-      quote: "Hoje temos lista de espera e podemos escolher nossos alunos.",
-      author: "Ana Costa",
-      role: "Mantenedora"
-    },
-    {
-      school: "Colégio Excelência",
-      location: "Sorocaba, SP",
-      image: "https://via.placeholder.com/400x500/1e40af/ffffff?text=Escola+4",
-      quote: "Deixamos de ser reféns das mensalidades e criamos 3 novas fontes de receita.",
-      author: "Pedro Oliveira",
-      role: "Diretor Financeiro"
-    },
-    {
-      school: "Centro Educacional Líder",
-      location: "Santos, SP",
-      image: "https://via.placeholder.com/400x500/1e3a8a/ffffff?text=Escola+5",
-      quote: "A retenção de professores aumentou 70% após reestruturarmos a gestão.",
-      author: "Carla Mendes",
-      role: "Coordenadora Geral"
+      name: "Valdenice Minatel Melo de Cerqueira",
+      role: "Diretora Institucional e CIO",
+      school: "Colégio Dante Alighieri",
+      image: valdenicePhoto,
+      quote: "O método trouxe clareza e previsibilidade para nossa gestão. Agora lideramos com confiança e foco nos resultados."
     }
   ];
 
@@ -103,48 +87,45 @@ const SocialProofSection = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-slate-950 py-24 md:py-32 relative overflow-hidden">
+    <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-slate-950 py-16 md:py-24 lg:py-32 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         {/* Header */}
         <motion.div 
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-cyan-400/70 text-xs uppercase tracking-[0.4em] mb-6">
-            Casos de Sucesso
-          </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-4xl mx-auto">
-            Deixamos de apagar incêndios e hoje temos{' '}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight max-w-4xl mx-auto px-4">
+            Gestores de excelência que{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-              gestão sólida e previsível
+              potencializaram seus resultados
             </span>
           </h2>
         </motion.div>
 
-        {/* Carousel Container */}
-        <div className="relative h-[600px] flex items-center justify-center">
+        {/* Carousel Container - DESKTOP */}
+        <div className="hidden md:block relative h-[600px]">
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 z-40 bg-white/10 backdrop-blur-sm p-4 rounded-full hover:bg-white/20 transition-all duration-300 group"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-40 bg-white/10 backdrop-blur-sm p-4 rounded-full hover:bg-white/20 transition-all duration-300 group"
           >
-            <FaChevronLeft className="text-white text-xl group-hover:text-cyan-400 transition-colors" />
+            <ChevronLeft className="text-white w-6 h-6 group-hover:text-cyan-400 transition-colors" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 z-40 bg-white/10 backdrop-blur-sm p-4 rounded-full hover:bg-white/20 transition-all duration-300 group"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-40 bg-white/10 backdrop-blur-sm p-4 rounded-full hover:bg-white/20 transition-all duration-300 group"
           >
-            <FaChevronRight className="text-white text-xl group-hover:text-cyan-400 transition-colors" />
+            <ChevronRight className="text-white w-6 h-6 group-hover:text-cyan-400 transition-colors" />
           </button>
 
           {/* Carousel Items */}
@@ -169,41 +150,43 @@ const SocialProofSection = () => {
                     onClick={() => setCurrentIndex(index)}
                     style={{ cursor: position !== 'center' ? 'pointer' : 'default' }}
                   >
-                    <div className={`relative ${position === 'center' ? 'w-[400px]' : 'w-[300px]'} bg-gradient-to-b from-slate-800/90 to-slate-900/90 rounded-3xl overflow-hidden border border-slate-700/50 hover:border-cyan-400/30 transition-all duration-300`}>
-                      {/* Image */}
-                      <div className="h-[250px] overflow-hidden">
-                        <img 
-                          src={testimonial.image} 
-                          alt={testimonial.school}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      
+                    <div className={`relative ${position === 'center' ? 'w-[450px]' : 'w-[350px]'} bg-gradient-to-b from-slate-800/90 to-slate-900/90 rounded-3xl overflow-hidden border border-slate-700/50 hover:border-cyan-400/30 transition-all duration-300`}>
                       {/* Content */}
-                      <div className="p-8">
+                      <div className="p-8 md:p-10">
+                        {/* Photo - circular */}
+                        <div className="flex justify-center mb-6">
+                          <div className={`${position === 'center' ? 'w-32 h-32' : 'w-24 h-24'} rounded-full overflow-hidden border-4 border-cyan-400/50`}>
+                            <img 
+                              src={testimonial.image} 
+                              alt={testimonial.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Quote icon */}
                         {position === 'center' && (
-                          <FaQuoteLeft className="text-cyan-400/30 text-3xl mb-4" />
+                          <div className="flex justify-center mb-4">
+                            <Quote className="text-cyan-400/30 w-10 h-10" />
+                          </div>
                         )}
                         
-                        <p className={`text-white/80 ${position === 'center' ? 'text-lg' : 'text-base'} leading-relaxed mb-6 italic`}>
+                        {/* Testimonial */}
+                        <p className={`text-white/80 ${position === 'center' ? 'text-lg' : 'text-base'} leading-relaxed mb-6 italic text-center`}>
                           "{testimonial.quote}"
                         </p>
                         
-                        <div className="border-t border-slate-700/50 pt-6">
-                          <h3 className="text-cyan-400 font-bold text-lg mb-1">
-                            {testimonial.school}
+                        {/* Author info */}
+                        <div className="text-center border-t border-slate-700/50 pt-6">
+                          <h3 className="text-white font-bold text-xl mb-1">
+                            {testimonial.name}
                           </h3>
-                          <p className="text-white/60 text-sm mb-3">
-                            {testimonial.location}
+                          <p className="text-cyan-400 text-sm font-semibold mb-1">
+                            {testimonial.role}
                           </p>
-                          <div>
-                            <p className="text-white/90 font-semibold">
-                              {testimonial.author}
-                            </p>
-                            <p className="text-white/60 text-sm">
-                              {testimonial.role}
-                            </p>
-                          </div>
+                          <p className="text-white/60 text-sm">
+                            {testimonial.school}
+                          </p>
                         </div>
                       </div>
 
@@ -219,8 +202,80 @@ const SocialProofSection = () => {
           </div>
         </div>
 
+        {/* Carousel Container - MOBILE */}
+        <div className="md:hidden">
+          <div className="relative">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.3 }}
+                className="w-full"
+              >
+                <div className="bg-gradient-to-b from-slate-800/90 to-slate-900/90 rounded-3xl overflow-hidden border border-slate-700/50 mx-4">
+                  <div className="p-6">
+                    {/* Photo - circular */}
+                    <div className="flex justify-center mb-6">
+                      <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-cyan-400/50">
+                        <img 
+                          src={testimonials[currentIndex].image} 
+                          alt={testimonials[currentIndex].name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Quote icon */}
+                    <div className="flex justify-center mb-4">
+                      <Quote className="text-cyan-400/30 w-8 h-8" />
+                    </div>
+                    
+                    {/* Testimonial */}
+                    <p className="text-white/80 text-base leading-relaxed mb-6 italic text-center">
+                      "{testimonials[currentIndex].quote}"
+                    </p>
+                    
+                    {/* Author info */}
+                    <div className="text-center border-t border-slate-700/50 pt-6">
+                      <h3 className="text-white font-bold text-lg mb-1">
+                        {testimonials[currentIndex].name}
+                      </h3>
+                      <p className="text-cyan-400 text-sm font-semibold mb-1">
+                        {testimonials[currentIndex].role}
+                      </p>
+                      <p className="text-white/60 text-sm">
+                        {testimonials[currentIndex].school}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Bottom accent */}
+                  <div className="h-1 bg-gradient-to-r from-cyan-400 to-blue-500" />
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Mobile Navigation Buttons */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 z-40 bg-white/10 backdrop-blur-sm p-3 rounded-full hover:bg-white/20 transition-all duration-300"
+            >
+              <ChevronLeft className="text-white w-5 h-5" />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 z-40 bg-white/10 backdrop-blur-sm p-3 rounded-full hover:bg-white/20 transition-all duration-300"
+            >
+              <ChevronRight className="text-white w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
         {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-12">
+        <div className="flex justify-center gap-2 mt-8 md:mt-12">
           {testimonials.map((_, index) => (
             <button
               key={index}

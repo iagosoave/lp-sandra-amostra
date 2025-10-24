@@ -6,6 +6,7 @@ import AboutSection from './components/AboutSection';
 import ProgramSection from './components/ProgramSection';
 import ProofAndOfferSection from './components/ProofAndOfferSection';
 import CTASection from './components/CTASection';
+import FAQSection  from './components/FAQSection';
  import FutureSection from './components/FutureSection';
 // import './index.css';
 
@@ -18,8 +19,10 @@ const App = () => {
        <AboutSection />
       <ProgramSection />
        <ProofAndOfferSection />
-       <FutureSection />   
+       {/* <FutureSection />    */}
        <CTASection />  
+       <FAQSection  />  
+  
     </div>
   );
 };
