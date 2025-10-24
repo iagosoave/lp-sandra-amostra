@@ -95,13 +95,13 @@ const HeroSection = () => {
             </motion.p>
           </div>
           
-          {/* CTA Button - MELHORADO */}
+          {/* CTA Button - AJUSTADO PARA MOBILE */}
           <motion.div
             variants={fadeInUp}
             className="mt-6"
           >
             <motion.button 
-              className="relative font-lato bg-[#003399] text-white font-bold px-8 py-4 rounded-full text-base w-full shadow-xl flex items-center justify-center space-x-3 overflow-hidden group"
+              className="relative font-lato bg-[#003399] text-white font-bold px-6 py-3.5 rounded-full text-sm w-full shadow-xl flex items-center justify-center space-x-2 overflow-hidden group"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}

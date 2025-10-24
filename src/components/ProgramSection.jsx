@@ -44,45 +44,79 @@ const sectionContent = {
 //==================================================================
 const ProgramSection = () => {
   return (
-    <section className="bg-[#0D1A2E] py-20 md:py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Título e subtítulo */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-slate-950 flex flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-16 md:py-20">
+      <style>
+        {`
+          @keyframes border-spin {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+          
+          .animate-border-spin {
+            animation: border-spin 4s linear infinite;
+          }
+        `}
+      </style>
+      
+      <div className="max-w-6xl w-full">
+        {/* Header */}
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight px-2">
             {sectionContent.title}
           </h2>
-          <p className="text-xl md:text-2xl text-cyan-300 font-semibold">
+          <p className="text-lg sm:text-xl md:text-2xl text-cyan-300 font-semibold px-2">
             {sectionContent.subtitle}
           </p>
         </div>
 
-        {/* Grid de entregáveis */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12">
           {sectionContent.deliverables.map((deliverable, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.03, y: -8 }}
-              className="bg-slate-800/60 p-8 rounded-2xl shadow-lg border border-slate-700"
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+              className="relative"
             >
-              <div className="text-cyan-400 mb-5">
-                <deliverable.icon className="w-12 h-12" />
+              {/* Animated border */}
+              <div className="absolute -inset-[3px] rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 animate-border-spin" 
+                     style={{
+                       background: 'conic-gradient(from 0deg, transparent 0deg 240deg, #22d3ee 240deg 300deg, #3b82f6 300deg 360deg)',
+                     }}
+                />
               </div>
-              <h3 className="text-xl font-bold text-white leading-snug">
-                {deliverable.title}
-              </h3>
+
+              {/* Card */}
+              <div className="relative bg-slate-900 rounded-2xl p-6 sm:p-8 h-full">
+                {/* Icon */}
+                <div className="mb-4 sm:mb-6">
+                  <deliverable.icon className="text-cyan-400 text-3xl sm:text-4xl w-12 h-12" />
+                </div>
+                
+                {/* Text */}
+                <h3 className="text-white/90 text-base sm:text-xl font-bold leading-snug">
+                  {deliverable.title}
+                </h3>
+              </div>
             </motion.div>
           ))}
         </div>
 
         {/* CTA Button */}
-        <div className="flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="flex justify-center"
+        >
           <motion.button
-            className="relative bg-[#003399] text-white font-bold py-5 px-10 rounded-full text-lg flex items-center space-x-3 shadow-2xl overflow-hidden group"
+            className="relative bg-[#003399] text-white font-bold py-4 sm:py-5 px-8 sm:px-10 rounded-full text-base sm:text-lg flex items-center space-x-3 shadow-2xl overflow-hidden group"
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -133,10 +167,10 @@ const ProgramSection = () => {
               <ArrowRight className="w-6 h-6" />
             </motion.div>
           </motion.button>
-        </div>
+        </motion.div>
 
       </div>
-    </section>
+    </div>
   );
 };
 

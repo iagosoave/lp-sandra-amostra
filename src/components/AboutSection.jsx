@@ -1,286 +1,174 @@
 import React from 'react';
 import sandraPhoto from './sandra.jpeg';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaTrophy, FaUsers, FaChartLine, FaGlobe, FaCertificate, FaClipboardCheck } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { Award, Users, TrendingUp, Globe, CheckCircle, Target } from 'lucide-react';
 
 const AboutSection = () => {
-  const sectionRef = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
-
   const metrics = [
     {
-      icon: FaTrophy,
+      icon: Award,
       number: '+460',
       title: 'Prêmios conquistados',
-      subtitle: '400+ nacionais, 60 internacionais em uma década',
-      detail: 'Reputação, engajamento e visibilidade científica'
+      subtitle: '400+ nacionais, 60 internacionais'
     },
     {
-      icon: FaUsers,
+      icon: Users,
       number: '42mil',
       title: 'Alunos impactados',
-      subtitle: 'Gestão direta e consultiva de redes',
-      detail: 'Escala, governança e padronização de ritos'
+      subtitle: 'Gestão direta e consultiva'
     },
     {
-      icon: FaChartLine,
+      icon: TrendingUp,
       number: 'Top 10',
       title: 'ENEM São Paulo',
-      subtitle: 'De 200ª posição ao topo',
-      detail: 'Impacto acadêmico consistente'
+      subtitle: 'De 200ª posição ao topo'
     },
     {
-      icon: FaGlobe,
+      icon: Globe,
       number: '4 países',
       title: 'Referências globais',
-      subtitle: 'Harvard, Singapura, Espanha, Finlândia',
-      detail: 'Credenciais e padrões globais'
+      subtitle: 'Harvard, Singapura, Espanha, Finlândia'
     },
     {
-      icon: FaCertificate,
+      icon: CheckCircle,
       number: 'Cambridge',
-      title: 'Certificações',
-      subtitle: 'Programas internacionais',
-      detail: 'Credenciais e padrões globais'
+      title: 'Certificações internacionais',
+      subtitle: 'Programas de excelência'
     },
     {
-      icon: FaClipboardCheck,
-      number: 'Rubricas',
-      title: 'Avaliação processual',
-      subtitle: 'Ganhos mensuráveis em aprendizagem',
-      detail: 'Método e indicadores pedagógicos'
+      icon: Target,
+      number: '10 passos',
+      title: 'Método O 5º Desafio',
+      subtitle: 'Framework executivo comprovado'
     }
   ];
 
   return (
-    <section ref={sectionRef} className="relative bg-white py-24 md:py-32 overflow-hidden">
-      
-      {/* Minimal decorative accent */}
-      <div className="absolute top-0 left-0 w-2 h-32 bg-[#003399]"></div>
-      <div className="absolute bottom-0 right-0 w-2 h-32 bg-[#003399]"></div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="bg-white py-12 md:py-16">
+      <div className="max-w-7xl mx-auto px-6">
         
-        {/* Section intro */}
-        <motion.div 
-          className="mb-24"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1 }}
-        >
-          <motion.div 
-            className="mb-6"
+        {/* Título da seção */}
+        <div className="text-center mb-10">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-extrabold text-[#033657] mb-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Quem lidera essa transformação
+          </motion.h2>
+          <motion.p 
+            className="text-lg md:text-xl text-[#003399] font-semibold"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Autoridade, experiência e resultados em larga escala
+          </motion.p>
+        </div>
+
+        {/* Conteúdo principal - Image Left + Info Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-12">
+          
+          {/* Coluna da imagem - ESQUERDA (SÓ A FOTO) */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#003399] font-semibold tracking-wider uppercase text-sm border-b-2 border-[#003399] pb-1">
-              Quem lidera essa transformação
-            </span>
-          </motion.div>
-
-          <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#033657] leading-tight mb-8 max-w-4xl"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Autoridade, experiência e<br />
-            <span className="text-[#003399]">resultados em larga escala</span>
-          </motion.h2>
-
-          <motion.p 
-            className="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-4xl"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Gestora, pesquisadora e estrategista acadêmica que ajudou escolas 
-            a superar crises profundas e conquistar resultados que pareciam impossíveis.
-          </motion.p>
-        </motion.div>
-
-        {/* Main content - Image and credentials */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-20 mb-32 items-start">
-          
-          {/* Photo column */}
-          <motion.div 
-            className="lg:col-span-2"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <div className="sticky top-24">
-              {/* Main image */}
-              <motion.div 
-                className="relative aspect-[3/4] overflow-hidden mb-8"
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.6 }}
-              >
-                <img 
-                  src={sandraPhoto} 
-                  alt="Sandra Tonidandel" 
-                  className="w-full h-full object-cover"
-                />
-                {/* Simple border accent */}
-                <div className="absolute inset-0 border-4 border-[#003399] pointer-events-none"></div>
-              </motion.div>
-
-              {/* Info below image */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                <h3 className="text-3xl font-bold text-[#033657] mb-2">
-                  Sandra Tonidandel
-                </h3>
-                <p className="text-[#003399] font-semibold text-xl mb-1">
-                  Doutora em Educação (USP)
-                </p>
-                <p className="text-slate-600 text-lg">
-                  34 anos de experiência
-                </p>
-              </motion.div>
+            <div className="relative">
+              <img 
+                src={sandraPhoto} 
+                alt="Sandra Tonidandel" 
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#003399]"></div>
             </div>
           </motion.div>
 
-          {/* Content column - COM SCROLL NO CARD */}
-          <div className="lg:col-span-3">
-            <motion.div
-              className="bg-gradient-to-br from-[#003399]/5 to-blue-50/50 rounded-3xl p-8 md:p-10 border-2 border-[#003399]/10 max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#003399] scrollbar-track-gray-100"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="space-y-6">
-                
-                <div>
-                  <p className="text-lg text-slate-700 leading-relaxed">
-                    <span className="font-bold text-[#033657]">Mestre e Doutora em Educação (USP)</span>, 34 anos de experiência. Liderança em escola de referência <span className="font-semibold text-[#033657]">(Dante Alighieri)</span> e rede nacional <span className="font-semibold text-[#033657]">(Fundação Bradesco, 42 mil alunos)</span>. Especialista em integrar pedagógico e financeiro, formar lideranças e implementar sistemas replicáveis.
-                  </p>
-                </div>
+          {/* Coluna de conteúdo - DIREITA */}
+          <motion.div 
+            className="flex flex-col justify-center space-y-3"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {/* Info de Sandra EM CIMA DO TEXTO */}
+            <div className="border-l-4 border-[#003399] pl-4 mb-1">
+              <h3 className="text-2xl md:text-3xl font-bold text-[#033657] mb-1">
+                Sandra Tonidandel
+              </h3>
+              <p className="text-[#003399] font-bold text-base md:text-lg mb-0.5">
+                Doutora em Educação (USP)
+              </p>
+              <p className="text-slate-600 text-sm md:text-base">
+                34 anos transformando escolas
+              </p>
+            </div>
 
-                <div>
-                  <p className="text-lg text-slate-700 leading-relaxed">
-                    Ao longo da jornada, em sua consultoria e mentoria, ajudou escolas a superar crises profundas e conquistar resultados que pareciam impossíveis.
-                  </p>
-                </div>
+            <div>
+              <p className="text-base md:text-lg text-slate-700 leading-relaxed">
+                <span className="font-bold text-[#033657]">Mestre e Doutora em Educação (USP)</span> com 34 anos de experiência. Liderança no Colégio Dante Alighieri e Fundação Bradesco (42 mil alunos).
+              </p>
+            </div>
 
-                <div>
-                  <p className="text-lg text-slate-700 leading-relaxed">
-                    Abordagem referenciada em práticas internacionais de excelência: <span className="font-semibold text-[#033657]">Harvard, Singapura, Espanha, Finlândia</span> — vivências presenciais adaptadas à realidade brasileira.
-                  </p>
-                </div>
-
-                <div className="bg-[#003399] p-6 rounded-xl">
-                  <p className="text-white text-lg font-bold">
-                    Não é teoria: é prática validada, estratégia comprovada.
-                  </p>
-                </div>
-
-                <div className="pt-4">
-                  <div className="mb-4">
-                    <span className="bg-[#003399] text-white px-4 py-2 text-xs font-semibold uppercase tracking-wide rounded">
-                      Método Exclusivo
-                    </span>
-                  </div>
-                  
-                  <h4 className="text-2xl md:text-3xl font-bold text-[#033657] mb-3">
-                    O 5º Desafio
-                  </h4>
-                  <p className="text-slate-700 text-lg leading-relaxed mb-3">
-                    Framework de <span className="font-bold text-[#033657]">10 passos</span> que leva escolas ao superávit estratégico — integrando gestão acadêmica, financeira e liderança.
-                  </p>
-                  <p className="text-[#003399] font-bold text-lg">
-                    Roteiro executivo comprovado
-                  </p>
-                </div>
-
-              </div>
-            </motion.div>
-          </div>
+            <div>
+              <p className="text-base md:text-lg text-slate-600 leading-relaxed">
+                Especialista em integrar pedagógico e financeiro, com abordagem baseada em <span className="font-semibold text-[#033657]">Harvard, Singapura, Espanha e Finlândia</span>.
+              </p>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Metrics section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1 }}
-        >
-          <motion.div 
-            className="mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 className="text-3xl md:text-4xl font-bold text-[#033657] mb-4">
-              Provas e Métricas
+        {/* Seção de métricas */}
+        <div>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-extrabold text-[#033657] mb-1">
+              Resultados Mensuráveis
             </h3>
-            <p className="text-xl text-slate-600 max-w-2xl">
-              Foco executivo com legendas curtas e impacto mensurável
+            <p className="text-base md:text-lg text-slate-600">
+              Impacto comprovado em escala
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {metrics.map((metric, index) => (
               <motion.div 
                 key={index}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
-                  ease: "easeOut"
-                }}
-                whileHover={{ y: -8 }}
-                className="group bg-slate-50 p-8 transition-all duration-300"
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group"
               >
-                {/* Icon */}
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-[#003399] flex items-center justify-center">
-                    <metric.icon className="w-7 h-7 text-white" />
+                {/* Ícone e número */}
+                <div className="flex items-center space-x-3 mb-2">
+                  <div className="w-11 h-11 bg-[#003399]/10 group-hover:bg-[#003399] flex items-center justify-center transition-colors duration-300">
+                    <metric.icon className="w-5 h-5 text-[#003399] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <div className="text-2xl md:text-3xl font-bold text-[#003399]">
+                    {metric.number}
                   </div>
                 </div>
 
-                {/* Number */}
-                <div className="text-5xl font-bold text-[#003399] mb-3">
-                  {metric.number}
-                </div>
-
-                {/* Title */}
-                <h4 className="font-bold text-[#033657] text-xl mb-2">
+                {/* Conteúdo */}
+                <h4 className="font-bold text-[#033657] text-base md:text-lg mb-1 leading-tight">
                   {metric.title}
                 </h4>
-
-                {/* Subtitle */}
-                <p className="text-slate-600 mb-4 font-medium">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   {metric.subtitle}
                 </p>
 
-                {/* Detail */}
-                <p className="text-sm text-slate-500 italic">
-                  {metric.detail}
-                </p>
+                {/* Linha de separação sutil */}
+                <div className="mt-2 h-px bg-slate-200 group-hover:bg-[#003399] transition-colors duration-300"></div>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>
