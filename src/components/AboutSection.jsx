@@ -56,7 +56,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Quem lidera essa transformação
+            Quem lidera essa <span className="text-[#c1a05d]">transformação</span>
           </motion.h2>
           <motion.p 
             className="text-lg md:text-xl text-[#003399] font-semibold"
@@ -85,7 +85,8 @@ const AboutSection = () => {
                 alt="Sandra Tonidandel" 
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#003399]"></div>
+              {/* Barra inferior dourada */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#003399] via-[#c1a05d] to-[#003399]"></div>
             </div>
           </motion.div>
 
@@ -97,28 +98,28 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Info de Sandra EM CIMA DO TEXTO */}
-            <div className="border-l-4 border-[#003399] pl-4 mb-1">
+            {/* Info de Sandra EM CIMA DO TEXTO - Borda com gradiente dourado */}
+            <div className="border-l-4 border-[#c1a05d] pl-4 mb-1">
               <h3 className="text-2xl md:text-3xl font-bold text-[#033657] mb-1">
                 Sandra Tonidandel
               </h3>
               <p className="text-[#003399] font-bold text-base md:text-lg mb-0.5">
-                Doutora em Educação (USP)
+                Doutora em Educação <span className="text-[#c1a05d]">(USP)</span>
               </p>
               <p className="text-slate-600 text-sm md:text-base">
-                34 anos transformando escolas
+                <span className="text-[#c1a05d] font-semibold">34 anos</span> transformando escolas
               </p>
             </div>
 
             <div>
               <p className="text-base md:text-lg text-slate-700 leading-relaxed">
-                <span className="font-bold text-[#033657]">Mestre e Doutora em Educação (USP)</span> com 34 anos de experiência. Liderança no Colégio Dante Alighieri e Fundação Bradesco (42 mil alunos).
+                <span className="font-bold text-[#033657]">Mestre e Doutora em Educação (USP)</span> com <span className="text-[#c1a05d] font-semibold">34 anos de experiência</span>. Liderança em escola de referência (Dante Alighieri) e rede nacional (Fundação Bradesco, <span className="text-[#c1a05d] font-semibold">40 escolas, 42 mil alunos</span>).
               </p>
             </div>
 
             <div>
               <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-                Especialista em integrar pedagógico e financeiro, com abordagem baseada em <span className="font-semibold text-[#033657]">Harvard, Singapura, Espanha e Finlândia</span>.
+                <span className="font-semibold text-[#c1a05d]">Consultora Especialista</span> em integração pedagógica e financeira, com mais de <span className="text-[#c1a05d] font-semibold">13 anos de experiência</span> e abordagem aperfeiçoada em <span className="font-semibold text-[#033657]">Harvard, Singapura, Espanha e Finlândia</span>.
               </p>
             </div>
           </motion.div>
@@ -128,7 +129,7 @@ const AboutSection = () => {
         <div>
           <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-extrabold text-[#033657] mb-1">
-              Resultados Mensuráveis
+              Resultados <span className="text-[#c1a05d]">Mensuráveis</span>
             </h3>
             <p className="text-base md:text-lg text-slate-600">
               Impacto comprovado em escala
@@ -145,7 +146,7 @@ const AboutSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
-                {/* Ícone e número */}
+                {/* Ícone e número - SEM detalhes dourados */}
                 <div className="flex items-center space-x-3 mb-2">
                   <div className="w-11 h-11 bg-[#003399]/10 group-hover:bg-[#003399] flex items-center justify-center transition-colors duration-300">
                     <metric.icon className="w-5 h-5 text-[#003399] group-hover:text-white transition-colors duration-300" />

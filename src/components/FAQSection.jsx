@@ -33,27 +33,27 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-[#0D1A2E] py-24 md:py-32">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="bg-[#0D1A2E] py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            Perguntas Frequentes
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-3 sm:mb-4 px-2">
+            Perguntas <span className="text-[#c1a05d]">Frequentes</span>
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 px-2">
             Tire suas dúvidas sobre o programa
           </p>
         </motion.div>
 
         {/* FAQ Items */}
-        <div className="space-y-4 mb-16">
+        <div className="space-y-3 sm:space-y-4 mb-10 sm:mb-12 md:mb-16">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -61,14 +61,14 @@ const FAQSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-slate-800/60 border border-slate-700 rounded-2xl overflow-hidden"
+              className="bg-slate-800/60 border border-slate-700 hover:border-[#c1a05d]/30 rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300"
             >
               {/* Question Button */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-slate-800/80 transition-colors duration-300"
+                className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left hover:bg-slate-800/80 transition-colors duration-300"
               >
-                <span className="text-lg font-bold text-white pr-8">
+                <span className="text-sm sm:text-base md:text-lg font-bold text-white pr-4 sm:pr-6 md:pr-8">
                   {faq.question}
                 </span>
                 <motion.div
@@ -77,9 +77,9 @@ const FAQSection = () => {
                   className="flex-shrink-0"
                 >
                   {openIndex === index ? (
-                    <Minus className="w-6 h-6 text-cyan-400" />
+                    <Minus className="w-5 h-5 sm:w-6 sm:h-6 text-[#c1a05d]" />
                   ) : (
-                    <Plus className="w-6 h-6 text-cyan-400" />
+                    <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-[#c1a05d]" />
                   )}
                 </motion.div>
               </button>
@@ -94,9 +94,9 @@ const FAQSection = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-8 pb-6 pt-2">
-                      <div className="w-full h-px bg-slate-700 mb-4"></div>
-                      <p className="text-gray-300 leading-relaxed text-lg">
+                    <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-5 md:pb-6 pt-2">
+                      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#c1a05d] to-transparent mb-3 sm:mb-4"></div>
+                      <p className="text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg">
                         {faq.answer}
                       </p>
                     </div>
@@ -109,25 +109,25 @@ const FAQSection = () => {
 
         {/* CTA */}
         <motion.div
-          className="text-center"
+          className="text-center px-4 sm:px-0"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <p className="text-xl text-white mb-8 font-semibold">
-            Pronto para avançar?
+          <p className="text-base sm:text-lg md:text-xl text-white mb-6 sm:mb-8 font-semibold px-2">
+            Pronto para <span className="text-[#c1a05d]">avançar</span>?
           </p>
           
           <motion.button
-            className="relative bg-[#003399] text-white font-bold py-5 px-10 rounded-full text-lg flex items-center space-x-3 shadow-2xl overflow-hidden group mx-auto"
+            className="relative bg-[#c1a05d] text-white font-bold py-3.5 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-full text-sm sm:text-base md:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-2xl overflow-hidden group w-full sm:w-auto sm:max-w-lg mx-auto"
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
             {/* Glow pulsante externo */}
             <motion.div
-              className="absolute -inset-2 bg-[#003399] rounded-full blur-2xl opacity-50"
+              className="absolute -inset-2 bg-[#c1a05d] rounded-full blur-2xl opacity-50"
               animate={{
                 opacity: [0.5, 0.7, 0.5],
                 scale: [1, 1.08, 1]
@@ -140,7 +140,7 @@ const FAQSection = () => {
             />
            
             {/* Background gradient animado no hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#003399] via-[#0055CC] to-[#003399] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#c1a05d] via-[#d4b36d] to-[#c1a05d] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
            
             {/* Shine effect melhorado e contínuo */}
             <motion.div
@@ -156,11 +156,11 @@ const FAQSection = () => {
             />
            
             {/* Button content */}
-            <span className="relative z-10 font-bold tracking-wide">AGENDAR CONVERSA EXECUTIVA</span>
+            <span className="relative z-10 font-bold tracking-wide whitespace-nowrap">AGENDAR CONVERSA EXECUTIVA</span>
            
             {/* Seta com animação */}
             <motion.div
-              className="relative z-10"
+              className="relative z-10 flex-shrink-0"
               animate={{ x: [0, 5, 0] }}
               transition={{
                 duration: 1.5,
@@ -168,7 +168,7 @@ const FAQSection = () => {
                 ease: "easeInOut"
               }}
             >
-              <ArrowRight className="w-6 h-6" />
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.div>
           </motion.button>
         </motion.div>

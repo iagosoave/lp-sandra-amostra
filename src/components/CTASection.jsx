@@ -20,8 +20,8 @@ const CTASection = () => {
   ];
 
   return (
-    <section className="bg-white py-24 md:py-32 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+    <section className="bg-[#0D1A2E] py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,94 +30,76 @@ const CTASection = () => {
         >
           {/* Logo */}
           <motion.div 
-            className="flex justify-center mb-12"
+            className="flex justify-center mb-8 sm:mb-10 md:mb-12"
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <img src={logo} alt="Logo" className="h-24 w-auto" />
+            <img src={logo} alt="Logo" className="h-16 sm:h-20 md:h-24 w-auto" />
           </motion.div>
 
-          {/* Requirements Cards - DARK BLUE THEME */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 max-w-5xl mx-auto">
+          {/* Requirements Cards - SEM ANIMAÇÃO E SEM TRAÇO */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-12 sm:mb-16 md:mb-20 max-w-5xl mx-auto">
             {requirements.map((req, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2, duration: 0.5 }}
                 className="relative group"
               >
                 {/* Glow effect on hover */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-20 blur transition duration-500" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-20 blur transition duration-500" />
                 
                 {/* Card - DARK BLUE BACKGROUND */}
-                <div className="relative bg-gradient-to-b from-blue-950/95 to-blue-900/90 backdrop-blur-sm rounded-2xl p-8 border border-blue-800/50 h-full hover:border-cyan-400/30 transition-all duration-300 overflow-hidden">
+                <div className="relative bg-gradient-to-b from-blue-950/95 to-blue-900/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-blue-800/50 h-full hover:border-cyan-400/30 transition-all duration-300 overflow-hidden">
                   {/* Background pattern */}
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-400/5 rounded-full blur-3xl" />
+                  <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-cyan-400/5 rounded-full blur-3xl" />
                   
                   {/* Content */}
                   <div className="relative z-10">
                     {/* Title */}
-                    <h3 className="text-cyan-400 font-bold text-lg mb-3 tracking-wide">
+                    <h3 className="text-cyan-400 font-bold text-base sm:text-lg mb-2 sm:mb-3 tracking-wide">
                       {req.title}
                     </h3>
                     {/* Subtitle */}
-                    <p className="text-white/80 text-base leading-relaxed">
+                    <p className="text-white/80 text-sm sm:text-base leading-relaxed">
                       {req.subtitle}
                     </p>
                   </div>
                 </div>
-
-                {/* Bottom accent bar */}
-                <div className="absolute bottom-0 left-8 right-8 h-1 overflow-hidden rounded-full">
-                  <div className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 animate-shimmer" />
-                </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-          
-          <style jsx>{`
-            @keyframes shimmer {
-              0% { transform: translateX(-100%); }
-              100% { transform: translateX(100%); }
-            }
-            .animate-shimmer {
-              animation: shimmer 3s linear infinite;
-            }
-          `}</style>
 
           {/* Main Message Section */}
           <motion.div
-            className="max-w-4xl mx-auto text-center mb-12"
+            className="max-w-4xl mx-auto text-center mb-8 sm:mb-10 md:mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-6 sm:mb-8 px-2">
               Se você sente que chegou a hora de liderar sua instituição rumo ao{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#003399] to-blue-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c1a05d] to-[#d4b36d]">
                 superávit estratégico
               </span>, o próximo passo é aplicar para o 5º Desafio.
             </h2>
             
-            <p className="text-xl text-slate-600 mb-12">
-              Clique abaixo e descubra como atravessar o 5º Desafio
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-10 md:mb-12 px-2">
+              Clique abaixo e descubra como atravessar o <span className="text-[#c1a05d] font-semibold">5º Desafio</span>
             </p>
 
-            {/* CTA Button */}
-            <motion.div className="flex justify-center">
+            {/* CTA Button - DOURADO E RESPONSIVO */}
+            <motion.div className="flex justify-center px-4 sm:px-0">
               <motion.button
-                className="relative bg-[#003399] text-white font-bold py-5 px-10 rounded-full text-lg flex items-center space-x-3 shadow-2xl overflow-hidden group"
+                className="relative bg-[#c1a05d] text-white font-bold py-3.5 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-full text-sm sm:text-base md:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-2xl overflow-hidden group w-full sm:w-auto sm:max-w-md"
                 whileHover={{ scale: 1.05, x: 5 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
                 {/* Glow pulsante externo */}
                 <motion.div
-                  className="absolute -inset-2 bg-[#003399] rounded-full blur-2xl opacity-50"
+                  className="absolute -inset-2 bg-[#c1a05d] rounded-full blur-2xl opacity-50"
                   animate={{
                     opacity: [0.5, 0.7, 0.5],
                     scale: [1, 1.08, 1]
@@ -130,7 +112,7 @@ const CTASection = () => {
                 />
                
                 {/* Background gradient animado no hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#003399] via-[#0055CC] to-[#003399] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#c1a05d] via-[#d4b36d] to-[#c1a05d] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                
                 {/* Shine effect melhorado e contínuo */}
                 <motion.div
@@ -146,11 +128,11 @@ const CTASection = () => {
                 />
                
                 {/* Button content */}
-                <span className="relative z-10 font-bold tracking-wide">APLICAR AGORA</span>
+                <span className="relative z-10 font-bold tracking-wide whitespace-nowrap">APLICAR AGORA</span>
                
                 {/* Seta com animação */}
                 <motion.div
-                  className="relative z-10"
+                  className="relative z-10 flex-shrink-0"
                   animate={{ x: [0, 5, 0] }}
                   transition={{
                     duration: 1.5,
@@ -158,7 +140,7 @@ const CTASection = () => {
                     ease: "easeInOut"
                   }}
                 >
-                  <ArrowRight className="w-6 h-6" />
+                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.div>
               </motion.button>
             </motion.div>

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import rodrigoPhoto from './rodrigo.png';
 import danielPhoto from './daniel.png';
-import valdenicePhoto from './valdenice.png';
+import valdenicePhoto from './maria.png';
 
 const SocialProofSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,21 +14,20 @@ const SocialProofSection = () => {
       role: "Diretor Executivo Educacional",
       school: "Palestrante e Consultor",
       image: rodrigoPhoto,
-      quote: "A transformação na nossa gestão acadêmica superou todas as expectativas. Hoje temos processos claros e resultados mensuráveis."
+      quote: "A competência acadêmica e visão educacional de Sandra configuram-se como referências capazes de orientar e inspirar diretores em seu percurso de aprimoramento e liderança."
     },
     {
       name: "Daniel Perry",
       role: "Diretor Executivo",
       school: "Sistema Anglo de Ensino",
       image: danielPhoto,
-      quote: "Conseguimos integrar o pedagógico e o financeiro de forma estratégica. Nossa instituição nunca esteve tão sólida."
+      quote: "Sua competência acadêmica e visão educacional configuram-se como referências para orientar e inspirar diretores em seu percurso de aprimoramento e liderança. Ressalto, ainda, que esta produção apresentada neste e-book constitui valiosa contribuição para toda a comunidade educacional."
     },
     {
-      name: "Valdenice Minatel Melo de Cerqueira",
+      name: "Maria Silva",
       role: "Diretora Institucional e CIO",
-      school: "Colégio Dante Alighieri",
       image: valdenicePhoto,
-      quote: "O método trouxe clareza e previsibilidade para nossa gestão. Agora lideramos com confiança e foco nos resultados."
+      quote: "O trabalho da Sandra Tonidandel se destaca pela organização, clareza nos processos e foco constante em resultados. Sua condução técnica trouxe consistência para a gestão e um compromisso real com a qualidade do ambiente escolar."
     }
   ];
 
