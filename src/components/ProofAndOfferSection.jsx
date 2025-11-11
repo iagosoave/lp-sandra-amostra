@@ -86,13 +86,7 @@ const SocialProofSection = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-slate-950 py-16 md:py-24 lg:py-32 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-      </div>
-
+    <section className="bg-[#1a2e49] py-16 md:py-24 lg:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         {/* Header */}
         <motion.div 
@@ -102,9 +96,9 @@ const SocialProofSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#ffffff] leading-tight max-w-4xl mx-auto px-4">
             Gestores de excelência que{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+            <span className="text-[#c1a05d]">
               potencializaram seus resultados
             </span>
           </h2>
@@ -115,16 +109,16 @@ const SocialProofSection = () => {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-40 bg-white/10 backdrop-blur-sm p-4 rounded-full hover:bg-white/20 transition-all duration-300 group"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-40 bg-[#335379]/80 backdrop-blur-sm p-4 rounded-full hover:bg-[#335379] transition-all duration-300 group"
           >
-            <ChevronLeft className="text-white w-6 h-6 group-hover:text-cyan-400 transition-colors" />
+            <ChevronLeft className="text-[#ffffff] w-6 h-6 group-hover:text-[#c1a05d] transition-colors" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-40 bg-white/10 backdrop-blur-sm p-4 rounded-full hover:bg-white/20 transition-all duration-300 group"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-40 bg-[#335379]/80 backdrop-blur-sm p-4 rounded-full hover:bg-[#335379] transition-all duration-300 group"
           >
-            <ChevronRight className="text-white w-6 h-6 group-hover:text-cyan-400 transition-colors" />
+            <ChevronRight className="text-[#ffffff] w-6 h-6 group-hover:text-[#c1a05d] transition-colors" />
           </button>
 
           {/* Carousel Items */}
@@ -149,12 +143,12 @@ const SocialProofSection = () => {
                     onClick={() => setCurrentIndex(index)}
                     style={{ cursor: position !== 'center' ? 'pointer' : 'default' }}
                   >
-                    <div className={`relative ${position === 'center' ? 'w-[450px]' : 'w-[350px]'} bg-gradient-to-b from-slate-800/90 to-slate-900/90 rounded-3xl overflow-hidden border border-slate-700/50 hover:border-cyan-400/30 transition-all duration-300`}>
+                    <div className={`relative ${position === 'center' ? 'w-[450px]' : 'w-[350px]'} bg-[#335379] rounded-3xl overflow-hidden border ${position === 'center' ? 'border-[#c1a05d]' : 'border-[#c1a05d]/30'} hover:border-[#c1a05d]/50 transition-all duration-300`}>
                       {/* Content */}
                       <div className="p-8 md:p-10">
                         {/* Photo - circular */}
                         <div className="flex justify-center mb-6">
-                          <div className={`${position === 'center' ? 'w-32 h-32' : 'w-24 h-24'} rounded-full overflow-hidden border-4 border-cyan-400/50`}>
+                          <div className={`${position === 'center' ? 'w-32 h-32' : 'w-24 h-24'} rounded-full overflow-hidden border-4 border-[#c1a05d]/50`}>
                             <img 
                               src={testimonial.image} 
                               alt={testimonial.name}
@@ -166,24 +160,24 @@ const SocialProofSection = () => {
                         {/* Quote icon */}
                         {position === 'center' && (
                           <div className="flex justify-center mb-4">
-                            <Quote className="text-cyan-400/30 w-10 h-10" />
+                            <Quote className="text-[#c1a05d]/30 w-10 h-10" />
                           </div>
                         )}
                         
                         {/* Testimonial */}
-                        <p className={`text-white/80 ${position === 'center' ? 'text-lg' : 'text-base'} leading-relaxed mb-6 italic text-center`}>
+                        <p className={`text-[#ffffff]/90 ${position === 'center' ? 'text-lg' : 'text-base'} leading-relaxed mb-6 italic text-center`}>
                           "{testimonial.quote}"
                         </p>
                         
                         {/* Author info */}
-                        <div className="text-center border-t border-slate-700/50 pt-6">
-                          <h3 className="text-white font-bold text-xl mb-1">
+                        <div className="text-center border-t border-[#c1a05d]/20 pt-6">
+                          <h3 className="text-[#ffffff] font-bold text-xl mb-1">
                             {testimonial.name}
                           </h3>
-                          <p className="text-cyan-400 text-sm font-semibold mb-1">
+                          <p className="text-[#c1a05d] text-sm font-semibold mb-1">
                             {testimonial.role}
                           </p>
-                          <p className="text-white/60 text-sm">
+                          <p className="text-[#ffffff]/60 text-sm">
                             {testimonial.school}
                           </p>
                         </div>
@@ -191,7 +185,7 @@ const SocialProofSection = () => {
 
                       {/* Bottom accent */}
                       {position === 'center' && (
-                        <div className="absolute bottom-0 left-8 right-8 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
+                        <div className="absolute bottom-0 left-8 right-8 h-1 bg-[#c1a05d] rounded-full" />
                       )}
                     </div>
                   </motion.div>
@@ -213,11 +207,11 @@ const SocialProofSection = () => {
                 transition={{ duration: 0.3 }}
                 className="w-full"
               >
-                <div className="bg-gradient-to-b from-slate-800/90 to-slate-900/90 rounded-3xl overflow-hidden border border-slate-700/50 mx-4">
+                <div className="bg-[#335379] rounded-3xl overflow-hidden border border-[#c1a05d] mx-4">
                   <div className="p-6">
                     {/* Photo - circular */}
                     <div className="flex justify-center mb-6">
-                      <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-cyan-400/50">
+                      <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-[#c1a05d]/50">
                         <img 
                           src={testimonials[currentIndex].image} 
                           alt={testimonials[currentIndex].name}
@@ -228,30 +222,30 @@ const SocialProofSection = () => {
 
                     {/* Quote icon */}
                     <div className="flex justify-center mb-4">
-                      <Quote className="text-cyan-400/30 w-8 h-8" />
+                      <Quote className="text-[#c1a05d]/30 w-8 h-8" />
                     </div>
                     
                     {/* Testimonial */}
-                    <p className="text-white/80 text-base leading-relaxed mb-6 italic text-center">
+                    <p className="text-[#ffffff]/90 text-base leading-relaxed mb-6 italic text-center">
                       "{testimonials[currentIndex].quote}"
                     </p>
                     
                     {/* Author info */}
-                    <div className="text-center border-t border-slate-700/50 pt-6">
-                      <h3 className="text-white font-bold text-lg mb-1">
+                    <div className="text-center border-t border-[#c1a05d]/20 pt-6">
+                      <h3 className="text-[#ffffff] font-bold text-lg mb-1">
                         {testimonials[currentIndex].name}
                       </h3>
-                      <p className="text-cyan-400 text-sm font-semibold mb-1">
+                      <p className="text-[#c1a05d] text-sm font-semibold mb-1">
                         {testimonials[currentIndex].role}
                       </p>
-                      <p className="text-white/60 text-sm">
+                      <p className="text-[#ffffff]/60 text-sm">
                         {testimonials[currentIndex].school}
                       </p>
                     </div>
                   </div>
 
                   {/* Bottom accent */}
-                  <div className="h-1 bg-gradient-to-r from-cyan-400 to-blue-500" />
+                  <div className="h-1 bg-[#c1a05d]" />
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -259,16 +253,16 @@ const SocialProofSection = () => {
             {/* Mobile Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 z-40 bg-white/10 backdrop-blur-sm p-3 rounded-full hover:bg-white/20 transition-all duration-300"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 z-40 bg-[#335379]/80 backdrop-blur-sm p-3 rounded-full hover:bg-[#335379] transition-all duration-300"
             >
-              <ChevronLeft className="text-white w-5 h-5" />
+              <ChevronLeft className="text-[#ffffff] w-5 h-5" />
             </button>
 
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 z-40 bg-white/10 backdrop-blur-sm p-3 rounded-full hover:bg-white/20 transition-all duration-300"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 z-40 bg-[#335379]/80 backdrop-blur-sm p-3 rounded-full hover:bg-[#335379] transition-all duration-300"
             >
-              <ChevronRight className="text-white w-5 h-5" />
+              <ChevronRight className="text-[#ffffff] w-5 h-5" />
             </button>
           </div>
         </div>
@@ -281,8 +275,8 @@ const SocialProofSection = () => {
               onClick={() => setCurrentIndex(index)}
               className={`transition-all duration-300 ${
                 index === currentIndex 
-                  ? 'w-8 h-2 bg-cyan-400' 
-                  : 'w-2 h-2 bg-white/30 hover:bg-white/50'
+                  ? 'w-8 h-2 bg-[#c1a05d]' 
+                  : 'w-2 h-2 bg-[#ffffff]/30 hover:bg-[#ffffff]/50'
               } rounded-full`}
             />
           ))}

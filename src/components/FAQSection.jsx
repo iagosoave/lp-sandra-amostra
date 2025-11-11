@@ -33,7 +33,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-[#0D1A2E] py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
+    <section className="bg-[#1a2e49] py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -44,10 +44,10 @@ const FAQSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-3 sm:mb-4 px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#ffffff] mb-3 sm:mb-4 px-2">
             Perguntas <span className="text-[#c1a05d]">Frequentes</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 px-2">
+          <p className="text-base sm:text-lg md:text-xl text-[#ffffff]/80 px-2">
             Tire suas dúvidas sobre o programa
           </p>
         </motion.div>
@@ -61,14 +61,14 @@ const FAQSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-slate-800/60 border border-slate-700 hover:border-[#c1a05d]/30 rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300"
+              className="bg-[#335379] border border-[#c1a05d]/20 hover:border-[#c1a05d]/50 rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300"
             >
               {/* Question Button */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left hover:bg-slate-800/80 transition-colors duration-300"
+                className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left hover:bg-[#335379]/80 transition-colors duration-300"
               >
-                <span className="text-sm sm:text-base md:text-lg font-bold text-white pr-4 sm:pr-6 md:pr-8">
+                <span className="text-sm sm:text-base md:text-lg font-bold text-[#ffffff] pr-4 sm:pr-6 md:pr-8">
                   {faq.question}
                 </span>
                 <motion.div
@@ -95,8 +95,8 @@ const FAQSection = () => {
                     className="overflow-hidden"
                   >
                     <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-5 md:pb-6 pt-2">
-                      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#c1a05d] to-transparent mb-3 sm:mb-4"></div>
-                      <p className="text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg">
+                      <div className="w-full h-px bg-[#c1a05d] mb-3 sm:mb-4"></div>
+                      <p className="text-[#ffffff]/90 leading-relaxed text-sm sm:text-base md:text-lg">
                         {faq.answer}
                       </p>
                     </div>
@@ -115,12 +115,12 @@ const FAQSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <p className="text-base sm:text-lg md:text-xl text-white mb-6 sm:mb-8 font-semibold px-2">
+          <p className="text-base sm:text-lg md:text-xl text-[#ffffff] mb-6 sm:mb-8 font-semibold px-2">
             Pronto para <span className="text-[#c1a05d]">avançar</span>?
           </p>
           
           <motion.button
-            className="relative bg-[#c1a05d] text-white font-bold py-3.5 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-full text-sm sm:text-base md:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-2xl overflow-hidden group w-full sm:w-auto sm:max-w-lg mx-auto"
+            className="relative bg-[#c1a05d] text-[#ffffff] font-bold py-3.5 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-full text-sm sm:text-base md:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-2xl overflow-hidden group w-full sm:w-auto sm:max-w-lg mx-auto"
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}

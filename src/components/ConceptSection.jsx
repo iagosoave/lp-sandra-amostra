@@ -52,7 +52,7 @@ const AdvancedConceptSection = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="bg-[#0D1A2E] py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden"
+      className="bg-[#1a2e49] py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-start">
@@ -83,7 +83,7 @@ const AdvancedConceptSection = () => {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
               viewport={{ once: true }}
-              className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-lg text-center lg:text-left mx-auto lg:mx-0"
+              className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg lg:text-xl text-[#ffffff] leading-relaxed max-w-lg text-center lg:text-left mx-auto lg:mx-0"
             >
               {sectionContent.mainParagraph}
             </motion.p>
@@ -103,11 +103,11 @@ const AdvancedConceptSection = () => {
               <div className="absolute -inset-[2px] sm:-inset-[3px] rounded-xl sm:rounded-2xl bg-[#c1a05d]">
               </div>
               
-              <div className="relative bg-slate-800/60 p-5 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl shadow-lg">
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold text-white mb-3 sm:mb-4">
+              <div className="relative bg-[#335379] p-5 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl shadow-lg">
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold text-[#ffffff] mb-3 sm:mb-4">
                   O Ponto de Virada
                 </h3>
-                <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mb-3 sm:mb-4 md:mb-6">
+                <p className="text-sm sm:text-base md:text-lg text-[#ffffff] leading-relaxed mb-3 sm:mb-4 md:mb-6">
                   {sectionContent.highlight}
                 </p>
                 <p className="text-sm sm:text-base md:text-lg text-[#c1a05d] font-semibold leading-relaxed">
@@ -119,7 +119,7 @@ const AdvancedConceptSection = () => {
             {/* Botão CTA - DOURADO E TOTALMENTE RESPONSIVO */}
             <motion.div className="flex justify-center lg:justify-start px-4 sm:px-0">
               <motion.button
-                className="relative bg-[#c1a05d] text-white font-bold py-3.5 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-full text-sm sm:text-base md:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-2xl overflow-hidden group w-full sm:w-auto sm:max-w-md"
+                className="relative bg-[#c1a05d] text-[#ffffff] font-bold py-3.5 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-full text-sm sm:text-base md:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-2xl overflow-hidden group w-full sm:w-auto sm:max-w-md"
                 whileHover={{ scale: 1.05, x: 5 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}

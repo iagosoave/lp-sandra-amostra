@@ -44,7 +44,7 @@ const HeroSection = () => {
 
   // Mobile Version Component
   const MobileVersion = () => (
-    <div className="relative min-h-screen bg-[#003399]">
+    <div className="relative min-h-screen bg-[#1a2e49]">
       {/* Background Image Container - SÓ NO TOPO */}
       <div className="relative w-full">
         <img 
@@ -54,11 +54,11 @@ const HeroSection = () => {
         />
         
         {/* Gradient overlay para transição suave */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#003399] to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#1a2e49] to-transparent"></div>
       </div>
       
       {/* Content Container - ABAIXO DA IMAGEM */}
-      <div className="relative z-10 px-6 py-8 bg-[#003399]">
+      <div className="relative z-10 px-6 py-8 bg-[#1a2e49]">
         <motion.div 
           className="w-full max-w-sm mx-auto space-y-4"
           variants={staggerContainer}
@@ -81,14 +81,14 @@ const HeroSection = () => {
           {/* Título e Texto - BRANCO */}
           <div className="space-y-4 text-center">
             <motion.h1 
-              className="font-playfair text-3xl font-bold leading-tight text-white"
+              className="font-playfair text-3xl font-bold leading-tight text-[#ffffff]"
               variants={fadeInUp}
             >
               Liderança escolar de <span className="text-[#c1a05d]">alta performance</span>, com método e previsibilidade
             </motion.h1>
             
             <motion.p 
-              className="font-lato text-white text-sm leading-relaxed font-semibold"
+              className="font-lato text-[#ffffff] text-sm leading-relaxed font-semibold"
               variants={fadeInUp}
             >
               Mentoria executiva para diretores e mantenedores que desejam transformar <span className="text-[#c1a05d]">resultados acadêmicos</span>, reputação e margens sem viver no modo "apaga incêndios".
@@ -101,7 +101,7 @@ const HeroSection = () => {
             className="mt-6"
           >
             <motion.button 
-              className="relative font-lato bg-[#c1a05d] text-white font-bold px-6 py-3.5 rounded-full text-sm w-full shadow-xl flex items-center justify-center space-x-2 overflow-hidden group"
+              className="relative font-lato bg-[#c1a05d] text-[#ffffff] font-bold px-6 py-3.5 rounded-full text-sm w-full shadow-xl flex items-center justify-center space-x-2 overflow-hidden group"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -158,7 +158,7 @@ const HeroSection = () => {
 
   // Desktop Version Component
   const DesktopVersion = () => (
-    <div className="relative w-full bg-black">
+    <div className="relative w-full bg-[#1a2e49]">
       {/* Container do Banner - TELA INTEIRA */}
       <div className="relative w-full h-screen">
         <img 
@@ -192,14 +192,14 @@ const HeroSection = () => {
               </motion.div>
               
               <motion.h1 
-                className="font-playfair text-3xl md:text-4xl font-bold leading-tight text-white"
+                className="font-playfair text-3xl md:text-4xl font-bold leading-tight text-[#ffffff]"
                 variants={fadeInUp}
               >
                 Liderança escolar de <span className="text-[#c1a05d]">alta performance</span>, com método e previsibilidade
               </motion.h1>
               
               <motion.h2 
-                className="font-lato text-lg md:text-xl font-semibold text-white leading-relaxed"
+                className="font-lato text-lg md:text-xl font-semibold text-[#ffffff] leading-relaxed"
                 variants={fadeInUp}
               >
                 Mentoria executiva para diretores e mantenedores que desejam transformar <span className="text-[#c1a05d]">resultados acadêmicos</span>, reputação e margens sem viver no modo "apaga incêndios".
@@ -211,7 +211,7 @@ const HeroSection = () => {
                 variants={fadeInUp}
               >
                 <motion.button 
-                  className="relative font-lato bg-[#c1a05d] text-white font-bold py-5 px-10 rounded-full text-lg flex items-center space-x-3 shadow-2xl overflow-hidden group"
+                  className="relative font-lato bg-[#c1a05d] text-[#ffffff] font-bold py-5 px-10 rounded-full text-lg flex items-center space-x-3 shadow-2xl overflow-hidden group"
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}

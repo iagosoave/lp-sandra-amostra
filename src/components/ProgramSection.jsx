@@ -44,13 +44,13 @@ const sectionContent = {
 //==================================================================
 const ProgramSection = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-slate-950 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
+    <div className="min-h-screen bg-[#1a2e49] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-6xl w-full">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight px-2">
-            <span className="text-white block mb-2 sm:mb-3">{sectionContent.title}</span>
-            <span className="text-cyan-400 block text-xl sm:text-2xl md:text-3xl lg:text-4xl">{sectionContent.subtitle}</span>
+            <span className="text-[#ffffff] block mb-2 sm:mb-3">{sectionContent.title}</span>
+            <span className="text-[#c1a05d] block text-xl sm:text-2xl md:text-3xl lg:text-4xl">{sectionContent.subtitle}</span>
           </h1>
         </div>
 
@@ -61,19 +61,19 @@ const ProgramSection = () => {
               key={index}
               className="relative"
             >
-              {/* Border estática com dourado */}
-              <div className="absolute -inset-[2px] sm:-inset-[3px] rounded-xl sm:rounded-2xl bg-gradient-to-br from-cyan-400/50 via-[#c1a05d]/40 to-cyan-400/50">
+              {/* Border estática minimalista */}
+              <div className="absolute -inset-[2px] sm:-inset-[3px] rounded-xl sm:rounded-2xl bg-[#c1a05d]/30">
               </div>
 
               {/* Card */}
-              <div className="relative bg-slate-900 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-7 lg:p-8 h-full">
-                {/* Icon em azul */}
+              <div className="relative bg-[#335379] rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-7 lg:p-8 h-full">
+                {/* Icon em dourado */}
                 <div className="mb-3 sm:mb-4 md:mb-6">
-                  <deliverable.icon className="text-cyan-400 w-10 h-10 sm:w-12 sm:h-12" strokeWidth={1.5} />
+                  <deliverable.icon className="text-[#c1a05d] w-10 h-10 sm:w-12 sm:h-12" strokeWidth={1.5} />
                 </div>
                 
                 {/* Text */}
-                <h3 className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl font-bold leading-snug">
+                <h3 className="text-[#ffffff] text-sm sm:text-base md:text-lg lg:text-xl font-bold leading-snug">
                   {deliverable.title}
                 </h3>
               </div>
@@ -89,7 +89,7 @@ const ProgramSection = () => {
           className="flex justify-center px-4 sm:px-0"
         >
           <motion.button
-            className="relative bg-[#c1a05d] text-white font-bold py-3.5 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-full text-sm sm:text-base md:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-2xl overflow-hidden group w-full sm:w-auto sm:max-w-lg"
+            className="relative bg-[#c1a05d] text-[#ffffff] font-bold py-3.5 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-full text-sm sm:text-base md:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-2xl overflow-hidden group w-full sm:w-auto sm:max-w-lg"
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
