@@ -182,11 +182,6 @@ const SocialProofSection = () => {
                           </p>
                         </div>
                       </div>
-
-                      {/* Bottom accent */}
-                      {position === 'center' && (
-                        <div className="absolute bottom-0 left-8 right-8 h-1 bg-[#c1a05d] rounded-full" />
-                      )}
                     </div>
                   </motion.div>
                 );
@@ -243,9 +238,6 @@ const SocialProofSection = () => {
                       </p>
                     </div>
                   </div>
-
-                  {/* Bottom accent */}
-                  <div className="h-1 bg-[#c1a05d]" />
                 </div>
               </motion.div>
             </AnimatePresence>
