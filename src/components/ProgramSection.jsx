@@ -43,41 +43,147 @@ const sectionContent = {
 // COMPONENTE PRINCIPAL DA SEÇÃO
 //==================================================================
 const ProgramSection = () => {
+  // Variantes para entrada dos cards
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30,
+      scale: 0.95
+    },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        delay: index * 0.1,
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    })
+  };
+
+  // Variantes para a borda
+  const borderVariants = {
+    initial: {
+      opacity: 0.3,
+      boxShadow: "0 0 0 rgba(193, 160, 93, 0)"
+    },
+    hover: {
+      opacity: 0.6,
+      boxShadow: "0 0 20px rgba(193, 160, 93, 0.3)",
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#1a2e49] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="max-w-6xl w-full">
         {/* Header */}
-        <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: -25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1]
+          }}
+          className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16"
+        >
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight px-2">
-            <span className="text-[#ffffff] block mb-2 sm:mb-3">{sectionContent.title}</span>
-            <span className="text-[#c1a05d] block text-xl sm:text-2xl md:text-3xl lg:text-4xl">{sectionContent.subtitle}</span>
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                delay: 0.3, 
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1]
+              }}
+              className="text-[#ffffff] block mb-2 sm:mb-3"
+            >
+              {sectionContent.title}
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                delay: 0.5, 
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1]
+              }}
+              className="text-[#c1a05d] block text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+            >
+              {sectionContent.subtitle}
+            </motion.span>
           </h1>
-        </div>
+        </motion.div>
 
-        {/* Cards Grid - RESPONSIVO */}
+        {/* Cards Grid - RESPONSIVO com animações */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-10 md:mb-12">
           {sectionContent.deliverables.map((deliverable, index) => (
-            <div
+            <motion.div
               key={index}
-              className="relative"
+              custom={index}
+              initial="hidden"
+              animate="visible"
+              variants={cardVariants}
+              whileHover={{ 
+                y: -8,
+                scale: 1.02,
+                transition: { 
+                  duration: 0.3,
+                  ease: [0.22, 1, 0.36, 1]
+                }
+              }}
+              whileTap={{ 
+                scale: 0.98,
+                transition: { 
+                  duration: 0.15,
+                  ease: "easeInOut"
+                }
+              }}
+              className="relative cursor-pointer"
             >
-              {/* Border estática minimalista */}
-              <div className="absolute -inset-[2px] sm:-inset-[3px] rounded-xl sm:rounded-2xl bg-[#c1a05d]/30">
-              </div>
+              {/* Border com glow sutil */}
+              <motion.div 
+                variants={borderVariants}
+                initial="initial"
+                whileHover="hover"
+                className="absolute -inset-[2px] sm:-inset-[3px] rounded-xl sm:rounded-2xl bg-[#c1a05d]"
+              />
 
-              {/* Card */}
-              <div className="relative bg-[#335379] rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-7 lg:p-8 h-full">
-                {/* Icon em dourado */}
-                <div className="mb-3 sm:mb-4 md:mb-6">
+              {/* Card com transição de sombra */}
+              <motion.div 
+                className="relative bg-[#335379] rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-7 lg:p-8 h-full"
+                whileHover={{
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+                  transition: { duration: 0.3 }
+                }}
+              >
+                {/* Icon - SEM animação no próprio ícone */}
+                <motion.div 
+                  className="mb-3 sm:mb-4 md:mb-6"
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.2 }
+                  }}
+                >
                   <deliverable.icon className="text-[#c1a05d] w-10 h-10 sm:w-12 sm:h-12" strokeWidth={1.5} />
-                </div>
+                </motion.div>
                 
-                {/* Text */}
-                <h3 className="text-[#ffffff] text-sm sm:text-base md:text-lg lg:text-xl font-bold leading-snug">
+                {/* Text com transição suave de cor */}
+                <motion.h3 
+                  className="text-[#ffffff] text-sm sm:text-base md:text-lg lg:text-xl font-bold leading-snug"
+                  whileHover={{
+                    color: "#e0c580",
+                    transition: { duration: 0.3 }
+                  }}
+                >
                   {deliverable.title}
-                </h3>
-              </div>
-            </div>
+                </motion.h3>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
 
@@ -85,7 +191,11 @@ const ProgramSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          transition={{ 
+            delay: 0.8, 
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1]
+          }}
           className="flex justify-center px-4 sm:px-0"
         >
           <motion.button

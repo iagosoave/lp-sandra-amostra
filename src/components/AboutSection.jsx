@@ -100,7 +100,7 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             {/* Info de Sandra EM CIMA DO TEXTO - Borda com gradiente dourado */}
-            <div className="border-l-4 border-[#c1a05d] pl-4 mb-1">
+            <div className="border-l-4 border-[#c1a05d] pl-4 mb-4">
               <h3 className="text-2xl md:text-3xl font-bold text-[#1a2e49] mb-1">
                 Sandra Tonidandel
               </h3>
@@ -110,6 +110,9 @@ const AboutSection = () => {
               <p className="text-slate-600 text-sm md:text-base">
                 <span className="text-[#c1a05d] font-semibold">34 anos</span> transformando escolas
               </p>
+              
+              {/* Linha divisória sutil */}
+              <div className="mt-4 h-px bg-gradient-to-r from-[#c1a05d] via-[#c1a05d]/50 to-transparent"></div>
             </div>
 
             <div>
