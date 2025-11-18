@@ -1,5 +1,5 @@
 import React from 'react';
-import sandraPhoto from './sandra.jpeg';
+import sandraPhoto from './sandra.jpg';
 import { motion } from 'framer-motion';
 import { Award, Users, TrendingUp, Globe, CheckCircle, Target } from 'lucide-react';
 
@@ -72,14 +72,15 @@ const AboutSection = () => {
         {/* Conteúdo principal - Image Left + Info Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-12">
           
-          {/* Coluna da imagem - ESQUERDA (SÓ A FOTO) */}
+          {/* Coluna da imagem - ESQUERDA (SÓ A FOTO) - REDUZIDA */}
           <motion.div 
+            className="flex justify-center lg:justify-start"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative">
+            <div className="relative w-full max-w-md">
               <img 
                 src={sandraPhoto} 
                 alt="Sandra Tonidandel" 

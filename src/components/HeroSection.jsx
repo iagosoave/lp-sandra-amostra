@@ -42,7 +42,7 @@ const HeroSection = () => {
     }
   };
 
-  // Mobile Version Component
+  // Mobile Version Component - OTIMIZADO
   const MobileVersion = () => (
     <div className="relative min-h-screen bg-[#1a2e49]">
       {/* Background Image Container - SÓ NO TOPO */}
@@ -54,54 +54,54 @@ const HeroSection = () => {
         />
         
         {/* Gradient overlay para transição suave */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#1a2e49] to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-t from-[#1a2e49] to-transparent"></div>
       </div>
       
-      {/* Content Container - ABAIXO DA IMAGEM */}
-      <div className="relative z-10 px-6 py-8 bg-[#1a2e49]">
+      {/* Content Container - ABAIXO DA IMAGEM - TOTALMENTE RESPONSIVO */}
+      <div className="relative z-10 px-4 sm:px-6 py-6 sm:py-8 bg-[#1a2e49]">
         <motion.div 
-          className="w-full max-w-sm mx-auto space-y-4"
+          className="w-full max-w-sm mx-auto space-y-3 sm:space-y-4"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
         >
           
-          {/* Logo */}
+          {/* Logo - RESPONSIVO */}
           <motion.div 
-            className="flex justify-center mb-2"
+            className="flex justify-center mb-2 sm:mb-3"
             variants={fadeInUp}
           >
             <img 
               src={logo} 
               alt="Logo" 
-              className="h-16 w-auto"
+              className="h-16 sm:h-20 w-auto"
             />
           </motion.div>
           
-          {/* Título e Texto - BRANCO */}
-          <div className="space-y-4 text-center">
+          {/* Título e Texto - RESPONSIVO */}
+          <div className="space-y-3 sm:space-y-4 text-center">
             <motion.h1 
-              className="font-playfair text-3xl font-bold leading-tight text-[#ffffff]"
+              className="font-playfair text-2xl sm:text-3xl font-bold leading-tight text-[#ffffff] px-2"
               variants={fadeInUp}
             >
               Liderança escolar de <span className="text-[#c1a05d]">alta performance</span>, com método e previsibilidade
             </motion.h1>
             
             <motion.p 
-              className="font-lato text-[#ffffff] text-sm leading-relaxed font-semibold"
+              className="font-lato text-[#ffffff] text-xs sm:text-sm leading-relaxed font-semibold px-2"
               variants={fadeInUp}
             >
               Mentoria executiva para diretores e mantenedores que desejam transformar <span className="text-[#c1a05d]">resultados acadêmicos</span>, reputação e margens sem viver no modo "apaga incêndios".
             </motion.p>
           </div>
           
-          {/* CTA Button - Dourado */}
+          {/* CTA Button - RESPONSIVO */}
           <motion.div
             variants={fadeInUp}
-            className="mt-6"
+            className="mt-4 sm:mt-6 px-2"
           >
             <motion.button 
-              className="relative font-lato bg-[#c1a05d] text-[#ffffff] font-bold px-6 py-3.5 rounded-full text-sm w-full shadow-xl flex items-center justify-center space-x-2 overflow-hidden group"
+              className="relative font-lato bg-[#c1a05d] text-[#ffffff] font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm w-full shadow-xl flex items-center justify-center space-x-2 overflow-hidden group"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -147,7 +147,7 @@ const HeroSection = () => {
                   ease: "easeInOut"
                 }}
               >
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.div>
             </motion.button>
           </motion.div>
@@ -187,7 +187,7 @@ const HeroSection = () => {
                 <img 
                   src={logo} 
                   alt="Logo" 
-                  className="h-20 md:h-24 w-auto"
+                  className="h-28 md:h-32 w-auto"
                 />
               </motion.div>
               

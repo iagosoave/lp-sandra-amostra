@@ -24,7 +24,7 @@ const SocialProofSection = () => {
       quote: "Sua competência acadêmica e visão educacional configuram-se como referências para orientar e inspirar diretores em seu percurso de aprimoramento e liderança. Ressalto, ainda, que esta produção apresentada neste e-book constitui valiosa contribuição para toda a comunidade educacional."
     },
     {
-      name: "Maria Silva",
+      name: " Silvia Helena H. de Oliveira",
       role: "Diretora Institucional e CIO",
       image: valdenicePhoto,
       quote: "O trabalho da Sandra Tonidandel se destaca pela organização, clareza nos processos e foco constante em resultados. Sua condução técnica trouxe consistência para a gestão e um compromisso real com a qualidade do ambiente escolar."
@@ -278,4 +278,4 @@ const SocialProofSection = () => {
   );
 };
 
-export default SocialProofSection;
+export default SocialProofSection;  
