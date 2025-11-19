@@ -100,7 +100,10 @@ const HeroSection = () => {
             variants={fadeInUp}
             className="mt-4 sm:mt-6 px-2"
           >
-            <motion.button 
+            <motion.a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe49fG1imc09O3aIUgmQlqedma3wtn1JP4ZwZv50JNi36zCBg/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative font-lato bg-[#c1a05d] text-[#ffffff] font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm w-full shadow-xl flex items-center justify-center space-x-2 overflow-hidden group"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
@@ -149,7 +152,7 @@ const HeroSection = () => {
               >
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.div>
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
@@ -210,8 +213,11 @@ const HeroSection = () => {
                 className="pt-4"
                 variants={fadeInUp}
               >
-                <motion.button 
-                  className="relative font-lato bg-[#c1a05d] text-[#ffffff] font-bold py-5 px-10 rounded-full text-lg flex items-center space-x-3 shadow-2xl overflow-hidden group"
+                <motion.a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSe49fG1imc09O3aIUgmQlqedma3wtn1JP4ZwZv50JNi36zCBg/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative inline-flex font-lato bg-[#c1a05d] text-[#ffffff] font-bold py-5 px-10 rounded-full text-lg items-center space-x-3 shadow-2xl overflow-hidden group"
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -261,7 +267,7 @@ const HeroSection = () => {
                   >
                     <ArrowRight className="w-6 h-6" />
                   </motion.div>
-                </motion.button>
+                </motion.a>
               </motion.div>
               
             </motion.div>

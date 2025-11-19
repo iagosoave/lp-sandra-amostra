@@ -36,7 +36,7 @@ const CTASection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <img src={logo} alt="Logo" className="h-16 sm:h-20 md:h-24 w-auto" />
+            <img src={logo} alt="Logo" className="h-24 sm:h-28 md:h-32 lg:h-36 w-auto" />
           </motion.div>
 
           {/* Requirements Cards - SEM ANIMAÇÃO E MINIMALISTA */}
@@ -75,20 +75,23 @@ const CTASection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#ffffff] leading-tight mb-6 sm:mb-8 px-2">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#ffffff] leading-snug sm:leading-tight mb-5 sm:mb-6 md:mb-8 px-3 sm:px-2">
               Se você sente que chegou a hora de liderar sua instituição rumo ao{' '}
               <span className="text-[#c1a05d]">
                 superávit estratégico
               </span>, o próximo passo é aplicar para o 5º Desafio.
             </h2>
             
-            <p className="text-base sm:text-lg md:text-xl text-[#ffffff]/80 mb-8 sm:mb-10 md:mb-12 px-2">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#ffffff]/80 mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-3 sm:px-2">
               Clique abaixo e descubra como atravessar o <span className="text-[#c1a05d] font-semibold">5º Desafio</span>
             </p>
 
             {/* CTA Button - DOURADO E RESPONSIVO */}
             <motion.div className="flex justify-center px-4 sm:px-0">
-              <motion.button
+              <motion.a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe49fG1imc09O3aIUgmQlqedma3wtn1JP4ZwZv50JNi36zCBg/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="relative bg-[#c1a05d] text-[#ffffff] font-bold py-3.5 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-full text-sm sm:text-base md:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-2xl overflow-hidden group w-full sm:w-auto sm:max-w-md"
                 whileHover={{ scale: 1.05, x: 5 }}
                 whileTap={{ scale: 0.97 }}
@@ -139,7 +142,7 @@ const CTASection = () => {
                 >
                   <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </motion.div>
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
         </motion.div>

@@ -119,7 +119,10 @@ const FAQSection = () => {
             Pronto para <span className="text-[#c1a05d]">avançar</span>?
           </p>
           
-          <motion.button
+          <motion.a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe49fG1imc09O3aIUgmQlqedma3wtn1JP4ZwZv50JNi36zCBg/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
             className="relative bg-[#c1a05d] text-[#ffffff] font-bold py-3.5 sm:py-4 md:py-5 px-6 sm:px-8 md:px-10 rounded-full text-sm sm:text-base md:text-lg flex items-center justify-center space-x-2 sm:space-x-3 shadow-2xl overflow-hidden group w-full sm:w-auto sm:max-w-lg mx-auto"
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.97 }}
@@ -170,7 +173,7 @@ const FAQSection = () => {
             >
               <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.div>
-          </motion.button>
+          </motion.a>
         </motion.div>
 
       </div>
