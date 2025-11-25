@@ -105,7 +105,7 @@ const AboutSection = () => {
                 Sandra Tonidandel
               </h3>
               <p className="text-[#335379] font-bold text-base md:text-lg mb-0.5">
-                Doutora em Educação <span className="text-[#c1a05d]">(USP)</span>
+                Mestre e Doutora em Educação <span className="text-[#c1a05d]">(USP)</span>
               </p>
               <p className="text-slate-600 text-sm md:text-base">
                 <span className="text-[#c1a05d] font-semibold">34 anos</span> transformando escolas
@@ -117,7 +117,7 @@ const AboutSection = () => {
 
             <div>
               <p className="text-base md:text-lg text-slate-700 leading-relaxed">
-                <span className="font-bold text-[#1a2e49]">Mestre e Doutora em Educação (USP)</span> com <span className="text-[#c1a05d] font-semibold">34 anos de experiência</span>. Liderança em escola de referência (Dante Alighieri) e rede nacional (Fundação Bradesco, <span className="text-[#c1a05d] font-semibold">40 escolas, 42 mil alunos</span>).
+                <span className="font-bold text-[#1a2e49]">Diretora corporativa e educacional</span> com <span className="text-[#c1a05d] font-semibold">34 anos de experiência</span>. Liderança em escola de referência (Dante Alighieri) e em rede nacional de ensino (Fundação Bradesco, <span className="text-[#c1a05d] font-semibold">40 escolas, 42 mil alunos</span>).
               </p>
             </div>
 
