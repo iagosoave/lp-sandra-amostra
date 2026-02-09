@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 
 // Import das imagens
 import bannerDesktop from './banner.jpeg';
@@ -45,7 +45,7 @@ const HeroSection = () => {
   // Mobile Version Component - OTIMIZADO
   const MobileVersion = () => (
     <div className="relative min-h-screen bg-[#1a2e49]">
-      {/* Background Image Container - SÓ NO TOPO */}
+      {/* Background Image Container */}
       <div className="relative w-full">
         <img 
           src={bannerMobile}
@@ -57,7 +57,7 @@ const HeroSection = () => {
         <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-t from-[#1a2e49] to-transparent"></div>
       </div>
       
-      {/* Content Container - ABAIXO DA IMAGEM - TOTALMENTE RESPONSIVO */}
+      {/* Content Container */}
       <div className="relative z-10 px-4 sm:px-6 py-6 sm:py-8 bg-[#1a2e49]">
         <motion.div 
           className="w-full max-w-sm mx-auto space-y-3 sm:space-y-4"
@@ -66,7 +66,7 @@ const HeroSection = () => {
           animate="visible"
         >
           
-          {/* Logo - RESPONSIVO */}
+          {/* Logo */}
           <motion.div 
             className="flex justify-center mb-2 sm:mb-3"
             variants={fadeInUp}
@@ -78,33 +78,40 @@ const HeroSection = () => {
             />
           </motion.div>
           
-          {/* Título e Texto - RESPONSIVO */}
-          <div className="space-y-3 sm:space-y-4 text-center">
+          {/* Título e Texto */}
+          <div className="space-y-2 sm:space-y-3 text-center">
             <motion.h1 
-              className="font-playfair text-2xl sm:text-3xl font-bold leading-tight text-[#ffffff] px-2"
+              className="font-playfair text-xl sm:text-2xl font-bold leading-tight text-[#ffffff] px-2"
               variants={fadeInUp}
             >
-              Liderança escolar de <span className="text-[#c1a05d]">alta performance</span>, com método e previsibilidade
+              O 5º Desafio: Gestão Estratégica para Escolas de <span className="text-[#c1a05d]">Excelência</span>
             </motion.h1>
             
-            <motion.p 
+            <motion.h2 
               className="font-lato text-[#ffffff] text-xs sm:text-sm leading-relaxed font-semibold px-2"
               variants={fadeInUp}
             >
-              Mentoria executiva para diretores e mantenedores que desejam transformar <span className="text-[#c1a05d]">resultados acadêmicos</span>, reputação e margens sem viver no modo "apaga incêndios".
+              O framework executivo com protocolos comprovados que guia diretores e mantenedores da gestão reativa ao <span className="text-[#c1a05d]">superávit estratégico</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="font-lato text-[#ffffff]/90 text-xs leading-relaxed px-2 pt-1"
+              variants={fadeInUp}
+            >
+              Mentoria executiva exclusiva para líderes educacionais que desejam elevar resultados acadêmicos, reputação institucional e margens financeiras — sem viver no modo "apaga incêndios".
             </motion.p>
           </div>
           
-          {/* CTA Button - RESPONSIVO */}
+          {/* CTA Button */}
           <motion.div
             variants={fadeInUp}
-            className="mt-4 sm:mt-6 px-2"
+            className="mt-3 sm:mt-4 px-2"
           >
             <motion.a
               href="https://docs.google.com/forms/d/e/1FAIpQLSe49fG1imc09O3aIUgmQlqedma3wtn1JP4ZwZv50JNi36zCBg/viewform"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative font-lato bg-[#c1a05d] text-[#ffffff] font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm w-full shadow-xl flex items-center justify-center space-x-2 overflow-hidden group"
+              className="relative font-lato bg-[#c1a05d] text-[#ffffff] font-bold px-5 sm:px-6 py-3 rounded-full text-xs sm:text-sm w-full shadow-xl flex items-center justify-center space-x-2 overflow-hidden group"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -126,7 +133,7 @@ const HeroSection = () => {
               {/* Background gradient hover */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#c1a05d] via-[#d4b36d] to-[#c1a05d] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              {/* Shine effect melhorado */}
+              {/* Shine effect */}
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
                 initial={{ x: '-100%' }}
@@ -140,7 +147,7 @@ const HeroSection = () => {
               />
               
               {/* Button content */}
-              <span className="relative z-10 font-bold">QUERO CONHECER O MÉTODO</span>
+              <span className="relative z-10 font-bold">AGENDAR CONVERSA ESTRATÉGICA</span>
               <motion.div
                 className="relative z-10"
                 animate={{ x: [0, 4, 0] }}
@@ -154,6 +161,36 @@ const HeroSection = () => {
               </motion.div>
             </motion.a>
           </motion.div>
+          
+          {/* Elemento de Escassez */}
+          <motion.div
+            variants={fadeInUp}
+            className="pt-2 px-2"
+          >
+            <div className="relative bg-gradient-to-r from-[#c1a05d]/10 via-[#c1a05d]/20 to-[#c1a05d]/10 border border-[#c1a05d]/30 rounded-lg px-3 py-2.5 backdrop-blur-sm">
+              <div className="flex items-center justify-center space-x-2">
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <Clock className="w-3.5 h-3.5 text-[#c1a05d] flex-shrink-0" />
+                </motion.div>
+                <div className="font-lato text-[10px] sm:text-xs text-[#ffffff] text-center leading-tight">
+                  <span className="font-bold text-[#c1a05d]">Vagas limitadas:</span> apenas <span className="font-bold text-[#c1a05d]">8 gestores</span> por ciclo
+                  <span className="block sm:inline sm:before:content-['_|_'] sm:before:mx-1 sm:before:text-[#c1a05d]/50 mt-0.5 sm:mt-0">
+                    Processo seletivo obrigatório
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          
         </motion.div>
       </div>
     </div>
@@ -176,7 +213,7 @@ const HeroSection = () => {
           {/* Logo e Conteúdo */}
           <div className="flex-1 flex flex-col justify-center">
             <motion.div 
-              className="max-w-xl space-y-3"
+              className="max-w-2xl space-y-3"
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
@@ -190,34 +227,44 @@ const HeroSection = () => {
                 <img 
                   src={logo} 
                   alt="Logo" 
-                  className="h-28 md:h-32 w-auto"
+                  className="h-24 md:h-28 w-auto"
                 />
               </motion.div>
               
+              {/* Título Principal */}
               <motion.h1 
                 className="font-playfair text-3xl md:text-4xl font-bold leading-tight text-[#ffffff]"
                 variants={fadeInUp}
               >
-                Liderança escolar de <span className="text-[#c1a05d]">alta performance</span>, com método e previsibilidade
+                O 5º Desafio: Gestão Estratégica para Escolas de <span className="text-[#c1a05d]">Excelência</span>
               </motion.h1>
               
+              {/* Subtítulo */}
               <motion.h2 
-                className="font-lato text-lg md:text-xl font-semibold text-[#ffffff] leading-relaxed"
+                className="font-lato text-base md:text-lg font-semibold text-[#ffffff] leading-relaxed"
                 variants={fadeInUp}
               >
-                Mentoria executiva para diretores e mantenedores que desejam transformar <span className="text-[#c1a05d]">resultados acadêmicos</span>, reputação e margens sem viver no modo "apaga incêndios".
+                O framework executivo com protocolos comprovados que guia diretores e mantenedores da gestão reativa ao <span className="text-[#c1a05d]">superávit estratégico</span>
               </motion.h2>
               
-              {/* CTA Button - Dourado */}
+              {/* Parágrafo Ponte */}
+              <motion.p 
+                className="font-lato text-sm md:text-base text-[#ffffff]/90 leading-relaxed pt-1"
+                variants={fadeInUp}
+              >
+                Mentoria executiva exclusiva para líderes educacionais que desejam elevar resultados acadêmicos, reputação institucional e margens financeiras — sem viver no modo "apaga incêndios".
+              </motion.p>
+              
+              {/* CTA Button */}
               <motion.div 
-                className="pt-4"
+                className="pt-3"
                 variants={fadeInUp}
               >
                 <motion.a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSe49fG1imc09O3aIUgmQlqedma3wtn1JP4ZwZv50JNi36zCBg/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative inline-flex font-lato bg-[#c1a05d] text-[#ffffff] font-bold py-5 px-10 rounded-full text-lg items-center space-x-3 shadow-2xl overflow-hidden group"
+                  className="relative inline-flex font-lato bg-[#c1a05d] text-[#ffffff] font-bold py-4 px-8 rounded-full text-base items-center space-x-3 shadow-2xl overflow-hidden group"
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -239,7 +286,7 @@ const HeroSection = () => {
                   {/* Background gradient animado no hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-[#c1a05d] via-[#d4b36d] to-[#c1a05d] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  {/* Shine effect melhorado e contínuo */}
+                  {/* Shine effect */}
                   <motion.div 
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-12"
                     initial={{ x: '-150%' }}
@@ -253,7 +300,7 @@ const HeroSection = () => {
                   />
                   
                   {/* Button content */}
-                  <span className="relative z-10 font-bold tracking-wide">QUERO CONHECER O MÉTODO</span>
+                  <span className="relative z-10 font-bold tracking-wide">AGENDAR CONVERSA ESTRATÉGICA</span>
                   
                   {/* Seta com animação */}
                   <motion.div
@@ -265,9 +312,35 @@ const HeroSection = () => {
                       ease: "easeInOut"
                     }}
                   >
-                    <ArrowRight className="w-6 h-6" />
+                    <ArrowRight className="w-5 h-5" />
                   </motion.div>
                 </motion.a>
+              </motion.div>
+              
+              {/* Elemento de Escassez */}
+              <motion.div
+                variants={fadeInUp}
+                className="pt-2"
+              >
+                <div className="inline-flex relative bg-gradient-to-r from-[#c1a05d]/10 via-[#c1a05d]/20 to-[#c1a05d]/10 border border-[#c1a05d]/30 rounded-lg px-4 py-3 backdrop-blur-sm">
+                  <div className="flex items-center space-x-2.5">
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.15, 1],
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <Clock className="w-4 h-4 text-[#c1a05d] flex-shrink-0" />
+                    </motion.div>
+                    <span className="font-lato text-sm text-[#ffffff]">
+                      <span className="font-bold text-[#c1a05d]">Vagas limitadas:</span> apenas <span className="font-bold text-[#c1a05d]">8 gestores</span> por ciclo <span className="text-[#c1a05d]/50 mx-1.5">|</span> Processo seletivo obrigatório
+                    </span>
+                  </div>
+                </div>
               </motion.div>
               
             </motion.div>
